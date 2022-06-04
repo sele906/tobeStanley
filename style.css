@@ -1,0 +1,172 @@
+* {
+  color: #0e8a0e;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Mono';
+  /* font-family: 'NeoDunggeunmo'; */
+}
+
+body {
+  margin: 3% 3% 50% 3%; /*바닥에 여백 주기*/
+  background-color: black;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  border-bottom: 1px solid #0e8a0e;
+}
+
+header h1 {
+  padding: 10px;
+}
+
+header div {
+  font-size: 1.4em;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+header button {
+  margin: 10px;
+  background-color: #000;
+  border: 1px solid #0e8a0e;
+  padding: 6px;
+  font-family: 'NeoDunggeunmo';
+}
+
+header button:hover {
+  cursor: pointer;
+}
+header button:active {
+  background-color: #0e8a0e;
+  color: white;
+}
+
+.orderbox {
+  width: 100%;
+  height: 10%;
+}
+
+.divisionline {
+  font-size: 1.8em;
+  font-weight: 500;
+  padding: 7px 0 0 0;
+}
+
+.order {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.textstart {
+  font-size: 1.8em;
+  font-weight: 300;
+  margin: 0px 10px 7px 0;
+}
+
+.ordercontent {
+  font-size: 1.3em;
+  font-weight: 300;
+  padding: 3px 10px 10px 0;
+  display: inline-block;
+}
+
+/*한국어 명령*/
+
+.ordercontentkor {
+  display: none;
+  font-family: 'NeoDunggeunmo';
+  font-size: 1.2em;
+}
+
+.input {
+  width: 100%;
+  caret-color: #0e8a0e;
+  font-size: 1.1em;
+  height: 35px;
+  border: #000;
+  background-color: #000;
+  text-transform: uppercase;
+  padding: 5px 0;
+}
+
+.input:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 1000px) {
+
+  header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header h1 {
+    text-align: center;
+  }
+
+  header div {
+    padding: 0 10px 15px 15px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  header h1 {
+    font-size: 1.6em;
+  }
+  
+  header button {
+    margin: 5px;
+    font-size: 0.5em;
+  }
+
+  .divisionline {
+    font-size: 1.5em;
+  }
+  
+  .textstart {
+    font-size: 1.5em;
+  }
+  
+  .ordercontent {
+    font-size: 1em;
+  }
+  
+  .input {
+    font-size: 1em;
+  }
+
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    margin: 5% 5% 50% 5%;
+  }
+  header div {
+    padding: 0 10px 7px 10px;
+    align-items: space-around;
+  }
+  header h1 {
+    font-size: 1.4em;
+  }
+  header p {
+    font-size: 1em;
+    padding: 0 8px 5px 13px;
+  }
+  header button {
+    margin: 3px;
+    font-size: 0.2em;
+    padding: 5px;
+  }
+  .ordercontent {
+    font-size: 1em;
+  }
+}

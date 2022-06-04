@@ -1,0 +1,80 @@
+Accepted 전송 완료
+Bad Request 요청 실패
+Unauthorized 권한없음
+Forbidden 금지
+Not Acceptable 허용되지 않는 요청입니다
+Method not allowed 허용되지 않는 메소드
+Request timeout 요청시간이 지났습니다
+Internal Server Error 서버 내부 오류
+Service Unavailable 서비스 불가능 상태입니다
+Unkown error 알 수 없는 에러
+Can't find the object 오브젝트를 찾을 수 없습니다
+You have entered an illegal object name character 불법적인 오브젝트명을 입력하였습니다
+An error occurred while creating an error report. 에러 메세지로 인해 에러가 발생하였습니다
+You must stop what you are doing and acknowledge me now
+하던 것을 멈추고 저를 인지하세요
+Can't find a camera
+카메라를 찾을 수 없습니다
+Unable to open file
+파일을 열 수 없습니다
+Catasrophic failure! 치명적인 실패!
+(에러시) The operation completed successfully. 완벽히 작동되고 있습니다.
+Congratulations. 축하합니다.
+You have gotten so many error messages recently, so here is a random one to let you know that I don't care. 지나치게 많은 에러메세지를 전송받고 있으므로, 제가 신경쓰지 않는다는 걸 알리고자 무작위 에러를 내보냅니다.
+Go outside and see the sun for once and enjoy life. 밖에 나가서 햇볕도 보고 삶을 즐기세요.
+You will receive an error message in the future. 향후에 에러 메세지를 받게 될겁니다.
+Found infected file: "Eight.exe". You can't remove it. 감염된 파일을 발견했습니다: "스탠리 패러블". 삭제할 수 없습니다.
+Time remaining: About 20304958393 hours. 남은 시간: 20304958393 시간.
+Your device is lonely. 당신의 기기가 외로워합니다.
+Run as fast as you can and don't look back. 뒤돌아보지 말고 최대한 빨리 달리세요.
+You just moved your mouse. Please restart your device. 마우스를 움직였으므로 기기를 재시작하세요.
+Unable to detect your keyboard. Press F2 or number 8. 키보드를 감지할 수 없습니다. F2 또는 숫자 8을 누르세요
+Did you sleep well recently? 최근에 잘 주무셨나요?
+If you want to do something useful, get a proper computer, and a mouse more than one button. Ask an adult to help you buy one. 유용한 일을 하고 싶다면, 좋은 컴퓨터와 하나이상의 버튼이 있는 마우스를 장만하세요. 어른에게 구매를 부탁하세요.
+User error - Replace User 사용자 에러 -  교체된 사용자
+Error code 42: User Error. It's not our fault! 에러코드 42: 사용자 에러. 저희의 잘못이 아닙니다!
+Task failed successfully. 성공적으로 실패하였습니다.
+Cannot save X for reason Y. X로 인해 Y를 구할 수 없습니다.
+Are you drunk? 술에 취했나요?
+You do that again and see what happens… 또 그런짓을 하면 어떻게 될지 두고봅시다.
+Please leave a dislike. 싫어요를 남겨주세요.
+I'm worried about you. 당신이 걱정됩니다.
+
+8: 
+love: No. You can't. Don't try. 그럴 수 없습니다. 시도조차 하지마세요.
+sleep: Please, take your time.
+
+Farewell, Stanley.
+Well, try the other one then.
+Who am I?! Can you speak to me? Please talk!
+Say something! Anything! Help me Stanley!
+I don't know who I..Wha I!...St!...Sta!...Stan!...Help!...No!
+Stanley stood on the roof.
+Oh...Stanley. *sigh* I applaud your effort, I really do, but you need to understand; there's only so much that machine can do.
+is that want you wanted? Control?
+You were supposed to let it go, turn the controls off, and leave.
+Hmm...let's say, um...two minutes.
+Hahaha, heh, Stanley...you're in for quite a disappointment.
+And Stanley died again. And Stanley died again. And Stanley died again.
+But Stanley just couldn't do it.
+Could a man.. love a room? I mean.. truly... truly, deeply... madly... love?
+um...uh...hm hm hm hm, from here it's...um...left.
+Oh, no. No, it's to the right, my mistake.
+This isn't right at all! 
+This is all a spoiler! Quick, Stanley, close your eyes!
+Stanley- wait...wait, what?
+Come, Stanley, our destiny awaits! 
+We'll find out, won't we? Eventually.
+Hahahahaha, gotcha!
+Ugh, it's ruined!
+What do I do? What do I do? What do I-
+I don't know... What's the answer?
+I have to. I have to. 
+I'm still here, here in this pile of rubbish. With you. YOU. 
+Is everything alright?
+What-really?
+No! No, no! What are you doing?!
+are you just teasing me?
+You see? There's nothing here.
+You heartless bastard.
+I'm not even going to try. 
