@@ -21,6 +21,10 @@ let noDlgnum = 0;
 let sameDlgnum = 0;
 let diffDlgnum = 0;
 
+//알림창 대사 번호
+let nAlert = 0;
+let sAlert = 0;
+
 //첫 시작 특수한 키
 
 document.getElementsByClassName('input')[i].addEventListener('keydown', function(event) {
@@ -130,6 +134,10 @@ function addLoader() {
           nothingDlg.push.apply(nothingDlg, nothingDlg2);
           nothingDlgKor.push.apply(nothingDlgKor, nothingDlgKor2);
         }
+        if (nonum === 15) {
+          nothingDlg.push.apply(nothingDlg, nothingDlg3);
+          nothingDlgKor.push.apply(nothingDlgKor, nothingDlgKor3);
+        }
 
         //적용하기
         document.getElementsByClassName('orderbox')[i-1].appendChild(emptyCreator);
@@ -178,6 +186,10 @@ function addLoader() {
       if (samenum === 15) {
         correctDlg.push.apply(correctDlg, correctDlg2);
         correctDlgKor.push.apply(correctDlgKor, correctDlgKor2);
+      }
+      if (samenum === 20) {
+        correctDlg.push.apply(correctDlg, correctDlg3);
+        correctDlgKor.push.apply(correctDlgKor, correctDlgKor3);
       }
 
 
@@ -228,6 +240,10 @@ function addLoader() {
       if (diffnum === 12) {
         differentDlg.push.apply(differentDlg, differentDlg2);
         differentDlgKor.push.apply(differentDlgKor, differentDlgKor2);
+      }
+      if (diffnum === 17) {
+        differentDlg.push.apply(differentDlg, differentDlg3);
+        differentDlgKor.push.apply(differentDlgKor, differentDlgKor3);
       }
 
       //적용하기
@@ -435,6 +451,9 @@ function showaddDlgbtn() {
 
 function cancelbtn() {
   document.getElementById('addmenu').style.display = "none";
+  document. getElementById('word'). value = "";
+  document.getElementById('engDlg').value = "";
+  document.getElementById('korDlg').value = "";
 }
 
 function confirmbtn() {
@@ -451,13 +470,16 @@ function confirmbtn() {
         ])
       );
       document.getElementById('addmenu').style.display = "none";
+      document. getElementById('word'). value = "";
+      document.getElementById('engDlg').value = "";
+      document.getElementById('korDlg').value = "";
     }
-    if (!isexcuted) {
-      document.getElementById('addmenu').style.display = "none";  //취소하면 아무것도 하지 않음
-    }
+    if (!isexcuted) {} //취소하면 아무것도 하지 않음
   } else if (document.getElementById('word').value === '') { //아무것도 입력하지 않았을 경우
-    alert('Nothing added.\n아무것도 입력되지 않았습니다.');
+    nAlert = Math.floor(Math.random()*nothingAlert.length);
+    alert(`${nothingAlert[nAlert]}`);
   } else { //있던 단어가 아니면
+    
     localStorage.setItem( 
       document.getElementById('word').value,
       JSON.stringify([
@@ -465,8 +487,12 @@ function confirmbtn() {
         document.getElementById('korDlg').value,
       ])
     );
-    alert('Saved.\n저장되었습니다.');
+    sAlert = Math.floor(Math.random()*saveAlert.length);
+    alert(`${saveAlert[sAlert]}`);
     document.getElementById('addmenu').style.display = "none";
+    document. getElementById('word'). value = "";
+    document.getElementById('engDlg').value = "";
+    document.getElementById('korDlg').value = "";
   }
 
 }
