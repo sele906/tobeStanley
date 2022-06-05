@@ -19,10 +19,6 @@ let noDlgnum = 0;
 let sameDlgnum = 0;
 let diffDlgnum = 0;
 
-let noDipDlgnum = 0;
-let sameDipDlgnum = 0;
-let diffDipDlgnum = 0;
-
 //첫 시작 특수한 키
 
 document.getElementsByClassName('input')[i].addEventListener('keydown', function(event) {
@@ -113,7 +109,6 @@ function addLoader() {
     if (document.getElementsByClassName('input')[i-1].value.length === 0) {
       nonum++;
       noDlgnum = Math.floor(Math.random()*nothingDlg.length);
-      noDipDlgnum = Math.floor(Math.random()*nothingDipDlg.length);
 
         //전체 상자 생성
         var emptyCreator = document.createElement('div');
@@ -125,10 +120,13 @@ function addLoader() {
         <p class="emptykor">--${nothingDlgKor[noDlgnum]}</p>`;
 
         //만약 깊게 들어가면 //리스트 추가하기?
-        if (nonum >= 10) {
-          emptyCreator.innerHTML = `
-          <p class="emptyeng">--${nothingDipDlg[noDipDlgnum]}</p> 
-          <p class="emptykor">--${nothingDipDlgKor[noDipDlgnum]}</p>`;
+        if (nonum === 5) {
+          nothingDlg.push.apply(nothingDlg, nothingDlg1);
+          nothingDlgKor.push.apply(nothingDlgKor, nothingDlgKor1);
+        }
+        if (nonum === 10) {
+          nothingDlg.push.apply(nothingDlg, nothingDlg2);
+          nothingDlgKor.push.apply(nothingDlgKor, nothingDlgKor2);
         }
 
         //적용하기
@@ -160,7 +158,6 @@ function addLoader() {
     if (document.getElementsByClassName('input')[i-1].value === memory[0] ) {
       samenum++;
       sameDlgnum = Math.floor(Math.random()*correctDlg.length);
-      sameDipDlgnum = Math.floor(Math.random()*correctDipDlg.length);
 
       //전체 상자 생성
       var sameCreator = document.createElement('div');
@@ -172,11 +169,15 @@ function addLoader() {
       <p class="samekor">--${correctDlgKor[sameDlgnum]}</p>`;
 
       //깊게 들어가면
-      if (samenum >= 10) {
-        sameCreator.innerHTML = `
-        <p class="sameeng">--${correctDipDlg[sameDipDlgnum]}</p> 
-        <p class="samekor">--${correctDipDlgKor[sameDipDlgnum]}</p>`;
+      if (samenum === 7) {
+        correctDlg.push.apply(correctDlg, correctDlg1);
+        correctDlgKor.push.apply(correctDlgKor, correctDlgKor1);
       }
+      if (samenum === 15) {
+        correctDlg.push.apply(correctDlg, correctDlg2);
+        correctDlgKor.push.apply(correctDlgKor, correctDlgKor2);
+      }
+
 
       //적용하기
       document.getElementsByClassName('orderbox')[i-1].appendChild(sameCreator);
@@ -207,7 +208,6 @@ function addLoader() {
     if (document.getElementsByClassName('input')[i-1].value != memory[0] && document.getElementsByClassName('input')[i-1].value.length != 0) {
       diffnum++;
       diffDlgnum = Math.floor(Math.random()*differentDlg.length);
-      diffDipDlgnum = Math.floor(Math.random()*differentDipDlg.length);
 
       //전체 상자 생성
       var diffCreator = document.createElement('div');
@@ -219,10 +219,13 @@ function addLoader() {
       <p class="diffkor">--${differentDlgKor[diffDlgnum]}</p> `;
 
       //깊게 들어가면
-      if (diffnum >= 10) {
-        diffCreator.innerHTML = `
-        <p class="diffeng">--${differentDipDlg[diffDipDlgnum]}</p> 
-        <p class="diffkor">--${differentDipDlgKor[diffDipDlgnum]}</p> `;
+      if (diffnum === 6) {
+        differentDlg.push.apply(differentDlg, differentDlg1);
+        differentDlgKor.push.apply(differentDlgKor, differentDlgKor1);
+      }
+      if (diffnum === 12) {
+        differentDlg.push.apply(differentDlg, differentDlg2);
+        differentDlgKor.push.apply(differentDlgKor, differentDlgKor2);
       }
 
       //적용하기
