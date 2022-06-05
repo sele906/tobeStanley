@@ -1,5 +1,7 @@
+//window.localStorage.clear();
 
-const orderbtn = ['Escape', 'Delete', 'Shift', 'Control', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'F2', 'F6', 'F8', 'F9', '8', 's', 'y', 'u', 'w', 'p', 'm', 'v', 'n', 'z', 'o', 'q'];
+
+const orderbtn = ['Escape', 'Delete', 'Shift', 'Control', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'F2', 'F8', 'F9', '8', 's', 'y', 'u', 'w', 'p', 'm', 'v', 'n', 'z', 'o', 'q'];
 let memory = ['dummy', 'Escape'];
 let ordertime = 0;
 let keynum = 0;
@@ -254,18 +256,23 @@ function addLoader() {
     }
 
     //이벤트
-    if (eventDlg.hasOwnProperty(document.getElementsByClassName('input')[i-1].value)) {
+    // if (eventDlg.hasOwnProperty(document.getElementsByClassName('input')[i-1].value)) {
+      if (document.getElementsByClassName('input')[i-1].value in localStorage) {
       eventnum++;
-      var eventinput = document.getElementsByClassName('input')[i-1];
+      var eventinput = document.getElementsByClassName('input')[i-1].value;
 
       //전체 상자 생성
       var eventCreator = document.createElement('div');
       eventCreator.setAttribute('class', 'event');
 
       //내용입력
+      // eventCreator.innerHTML = `
+      // <p class="eventeng">--${eventDlg[`${eventinput.value}`][0]}</p> 
+      // <p class="eventkor">--${eventDlg[`${eventinput.value}`][1]}</p> `;
+
       eventCreator.innerHTML = `
-      <p class="eventeng">--${eventDlg[`${eventinput.value}`][0]}</p> 
-      <p class="eventkor">--${eventDlg[`${eventinput.value}`][1]}</p> `;
+      <p class="eventeng">--${JSON.parse(localStorage.getItem(eventinput))[0]}</p> 
+      <p class="eventkor">--${JSON.parse(localStorage.getItem(eventinput))[1]}</p> `;
 
       //적용하기
       document.getElementsByClassName('orderbox')[i-1].appendChild(eventCreator);
@@ -297,7 +304,7 @@ function addLoader() {
   }
 }
 
-function translateLang() { //함수명 너무 흔한걸로 쓰면 원래 있던 메소드와 겹쳐버림
+function translateLangbtn() { //함수명 너무 흔한걸로 쓰면 원래 있던 메소드와 겹쳐버림
 
   //영어일때
   if (lang === 1) {
@@ -422,3 +429,44 @@ function translateLang() { //함수명 너무 흔한걸로 쓰면 원래 있던 
 
 }
 
+function showaddDlgbtn() {
+  document.getElementById('addmenu').style.display = "inline-flex";
+}
+
+function cancelbtn() {
+  document.getElementById('addmenu').style.display = "none";
+}
+
+function confirmbtn() {
+
+  //이미 단어가 있다는 안내문구
+  if (document.getElementById('word').value in localStorage) {
+    let isexcuted = confirm('Word already exists. Procceed?\n이미 있는 단어입니다. 계속할까요?');
+    if (isexcuted) {
+      localStorage.setItem( 
+        document.getElementById('word').value,
+        JSON.stringify([
+          document.getElementById('engDlg').value, 
+          document.getElementById('korDlg').value,
+        ])
+      );
+      document.getElementById('addmenu').style.display = "none";
+    }
+    if (!isexcuted) {
+      document.getElementById('addmenu').style.display = "none";  //취소하면 아무것도 하지 않음
+    }
+  } else if (document.getElementById('word').value === '') { //아무것도 입력하지 않았을 경우
+    alert('Nothing added.\n아무것도 입력되지 않았습니다.');
+  } else { //있던 단어가 아니면
+    localStorage.setItem( 
+      document.getElementById('word').value,
+      JSON.stringify([
+        document.getElementById('engDlg').value, 
+        document.getElementById('korDlg').value,
+      ])
+    );
+    alert('Saved.\n저장되었습니다.');
+    document.getElementById('addmenu').style.display = "none";
+  }
+
+}

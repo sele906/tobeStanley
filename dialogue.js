@@ -132,8 +132,10 @@ let differentDlgKor2 = [
   '유용한 일을 하고 싶다면, 좋은 컴퓨터와 하나이상의 버튼이 있는 마우스를 장만하세요. 어른에게 구매를 부탁하세요.',
 ];
 
+window.localStorage.clear();
 
-let eventDlg = {
-  love : ['What are you doing?', '뭐하시는 거죠?'],
-  stanley : ['Focus on work', '일에 집중하세요']
-};
+// let eventDlg = {
+//   love : ['What are you doing?', '뭐하시는 거죠?'],
+//   stanley : ['Focus on work', '일에 집중하세요']
+// };
+window.localStorage.setItem('mycat', JSON.stringify(['Tom', '톰']));

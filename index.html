@@ -8,17 +8,52 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.510/neodgm/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/74b8c9745c.js" crossorigin="anonymous"></script>
 
   <title>Employee #427 Instructional Prompt</title>
 </head>
 <body>
   <header>
     <h1>>-Employee #427 Instructional Prompt</h1>
-    <div>
+    <div id="version">
       <p>v. 1.81.7+</p>
-      <button onclick="translateLang()">번역</button>
+      <button class="menu" id="translatebtn" onclick="translateLangbtn()">번역</button>
+      <button class="menu" id="addbtn" onclick="showaddDlgbtn()">+</button>
     </div>
+
+    <div id="addmenu">
+      <div id="Edlgheader">
+        <h3>Add Dialogue 대사 추가</h3>
+      </div>
+      <div id="Edlginput">
+        <div id="Edigword">
+          <label for="word">Word: </label>
+          <input type="text" id="word">
+        </div>
+        <div id="Edlgeng">
+          <label for="engDlg">Eng Dialogue: </label>
+          <input type="text" id="engDlg">
+          <!-- <button class="lang" id="addlang" onclick="addlangbtn()">
+            <i class="fa-solid fa-plus"></i>
+          </button> -->
+        </div>
+        <div id="Edlgkor">
+          <label for="korDlg">한국어 대사: </label>
+          <input type="text" id="korDlg">
+          <!-- <button class="lang" id="hidelang" onclick="hidelangbtn()">
+            <i class="fa-solid fa-minus"></i>
+          </button> -->
+        </div>
+      </div>
+      <div id="Edlgsave">
+        <button class="choose" id="Edlgcancel" onclick="cancelbtn()">Cancel</button>
+        <button class="choose" id="Edlgconfirm" onclick="confirmbtn()">OK</button>
+      </div>
+    </div>
+
   </header>
+
   <main id="Instruction">
     <div class="orderbox">
       <div class="divisionline">---</div>

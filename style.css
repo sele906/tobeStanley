@@ -23,7 +23,7 @@ header h1 {
   padding: 10px;
 }
 
-header div {
+header #version {
   font-size: 1.4em;
   padding: 10px;
   display: flex;
@@ -31,21 +31,146 @@ header div {
   align-items: center;
 }
 
-header button {
-  margin: 10px;
+header .menu {
   background-color: #000;
   border: 1px solid #0e8a0e;
-  padding: 6px;
+  height: 25px;
+  cursor: pointer;
+}
+
+header #translatebtn {
+  margin: 10px 5px 10px 10px;
+  padding: 2px 6px 3px 6px;
   font-family: 'NeoDunggeunmo';
 }
 
-header button:hover {
-  cursor: pointer;
+header #addbtn {
+  font-size: 0.8em;
+  margin: 10px 10px 10px 5px;
+  padding: 0 7px 1px 7px;
+  font-family: 'Roboto Mono';
 }
-header button:active {
+
+header .menu:active {
   background-color: #0e8a0e;
   color: white;
 }
+
+/* 알림 */
+
+#addmenu {
+  padding: 15px;
+  border: 1px solid #0e8a0e;
+  background-color: #000;
+  position: fixed;
+  width: 400px;
+  height: 270px;
+  top: 50%;
+  left: 50%;
+  margin-left: -200px; 
+  margin-top: -135px; 
+  display: none;
+  flex-direction: column;
+  /* flex: 1 5 1; */
+}
+
+#Edlgheader {
+  width: 100%;
+  height: 25%;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+#Edlgheader h3 {
+  font-size: 1.3em;
+  /* padding: 5px 0 3px 3px; */
+}
+
+#Edlginput {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 1px solid #0e8a0e;
+  border-bottom: 1px solid #0e8a0e;
+}
+
+#Edlginput label {
+  font-size: 1.1em;
+  flex: 0 0 150px; /*부모요소가 아닌 자식 요소에다 쓸것*/
+}
+
+#Edlginput input {
+  font-size: 1.1em;
+  width: 250px;
+  height: 23px;
+  margin: 0 20px 0 0;
+}
+
+/* #Edlginput .lang {
+  background-color: #000;
+  border: 1px solid #0e8a0e;
+  height: 27px;
+  cursor: pointer;
+  font-size: 0.3em;
+  padding: 0 7px; 
+  font-family: 'Roboto Mono';
+} */
+
+#Edigword {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+#Edigword input{
+  text-transform: uppercase;
+}
+
+#Edlgeng {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+#Edlgkor {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+#Edlgsave {
+  padding: 15px 0 0 0;
+  display: flex;
+  flex-direction: row;
+}
+
+#Edlgsave .choose {
+  background-color: #000;
+  color: #0e8a0e;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#Edlgcancel {
+ width: 100%;
+ height: 100%;
+ border-right: 1px solid #0e8a0e;
+}
+
+#Edlgconfirm {
+  width: 100%;
+  height: 100%;
+}
+
+#addmenu button:active {
+  background-color: #0e8a0e;
+  color: white;
+}
+
+
+/* 영어 명령 */
 
 .orderbox {
   width: 100%;
@@ -84,7 +209,9 @@ header button:active {
   display: none;
   font-family: 'NeoDunggeunmo';
   font-size: 1.2em;
-}
+}  
+
+/*입력*/
 
 .input {
   width: 100%;
@@ -113,7 +240,7 @@ header button:active {
     text-align: center;
   }
 
-  header div {
+  header #version {
     padding: 0 10px 15px 15px;
   }
 }
@@ -123,7 +250,7 @@ header button:active {
     font-size: 1.6em;
   }
   
-  header button {
+  header #translatebtn {
     margin: 5px;
     font-size: 0.5em;
   }
@@ -144,13 +271,58 @@ header button:active {
     font-size: 1em;
   }
 
+  /*알림*/
+
+  #addmenu {
+    padding: 10px;
+    width: 300px;
+    height: 220px;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px; 
+    margin-top: -110px; 
+  }
+
+  #Edlginput {
+    padding: 5px 0;
+  }
+
+  #Edlgheader h3 {
+    font-size: 1em;
+    padding: 0 0 10px 0;
+    /* padding: 5px 0 3px 3px; */
+  }
+
+  #Edlginput label {
+    font-size: 0.8em;
+    flex: 0 0 110px; /*부모요소가 아닌 자식 요소에다 쓸것*/
+  }
+
+  #Edlginput input {
+    font-size: 0.9em;
+    width: 160px;
+    height: 18px;
+  }
+
+  /* #Edlginput .lang {
+    height: 22px;
+  } */
+
+  #Edlgsave {
+    padding: 10px 0 0 0;
+  }
+
+  #Edlgsave .choose {
+    font-size: 0.8em;
+  }
+
 }
 
 @media screen and (max-width: 375px) {
   body {
     margin: 5% 5% 50% 5%;
   }
-  header div {
+  header #version {
     padding: 0 10px 7px 10px;
     align-items: space-around;
   }
@@ -168,5 +340,54 @@ header button:active {
   }
   .ordercontent {
     font-size: 1em;
+  }
+
+  /*알림*/
+
+  #addmenu {
+    padding: 7px;
+    width: 250px;
+    height: 180px;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px; 
+    margin-top: -110px; 
+  }
+
+  #Edlginput {
+    padding: 3px 0;
+  }
+
+  #Edlgheader h3 {
+    font-size: 0.8em;
+    padding: 0 0 5px 0;
+    /* padding: 5px 0 3px 3px; */
+  }
+
+  #Edlginput label {
+    font-size: 0.8em;
+    flex: 0 0 110px; /*부모요소가 아닌 자식 요소에다 쓸것*/
+  }
+
+  #Edlginput input {
+    font-size: 0.9em;
+    width: 110px;
+    height: 15px;
+    margin: 0 8px 0 0;
+  }
+
+  /* #Edlginput .lang {
+    height: 17px;
+
+  } */
+
+  #Edlgsave {
+    padding: 3px 0 0 0;
+    box-sizing: border-box;
+  }
+
+  #Edlgsave .choose {
+    margin: 0;
+    font-size: 0.5em;
   }
 }
