@@ -21,16 +21,27 @@ let noDlgnum = 0;
 let sameDlgnum = 0;
 let diffDlgnum = 0;
 
+//let n = 0;
+
 //알림창 대사 번호
+let eAlert = 0;
 let nAlert = 0;
 let sAlert = 0;
 
-//첫 시작 특수한 키
+//배열 섞기 함수
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
+//첫 시작 특수한 키
+//key === 'Shift' ||
 document.getElementsByClassName('input')[i].addEventListener('keydown', function(event) {
   const key = event.key; 
 
-  if (key === 'Delete' || key === 'Escape' || key === 'CapsLock' || key === 'Shift' || key === 'Control' || key === 'ArrowLeft' || key === 'ArrowUp' || key === 'ArrowRight' || key === 'ArrowDown' || key === 'F2' || key === 'F6' || key === 'F8' || key === 'F9') {     
+  if (key === 'Delete' || key === 'Escape' || key === 'CapsLock' ||  key === 'Control' || key === 'ArrowLeft' || key === 'ArrowUp' || key === 'ArrowRight' || key === 'ArrowDown' || key === 'F2' || key === 'F6' || key === 'F8' || key === 'F9') {     
     document.getElementsByClassName('input')[i].value = key;
   }
 });
@@ -116,15 +127,6 @@ function addLoader() {
       nonum++;
       noDlgnum = Math.floor(Math.random()*nothingDlg.length);
 
-        //전체 상자 생성
-        var emptyCreator = document.createElement('div');
-        emptyCreator.setAttribute('class', 'empty');
-  
-        //내용입력
-        emptyCreator.innerHTML = `
-        <p class="emptyeng">--${nothingDlg[noDlgnum]}</p> 
-        <p class="emptykor">--${nothingDlgKor[noDlgnum]}</p>`;
-
         //만약 깊게 들어가면 //리스트 추가하기?
         if (nonum === 5) {
           nothingDlg.push.apply(nothingDlg, nothingDlg1);
@@ -138,6 +140,20 @@ function addLoader() {
           nothingDlg.push.apply(nothingDlg, nothingDlg3);
           nothingDlgKor.push.apply(nothingDlgKor, nothingDlgKor3);
         }
+
+        //전체 상자 생성
+        var emptyCreator = document.createElement('div');
+        emptyCreator.setAttribute('class', 'empty');
+
+        //내용입력
+        emptyCreator.innerHTML = 
+        `<p class="emptyeng">--${nothingDlg[noDlgnum]}</p> 
+        <p class="emptykor">--${nothingDlgKor[noDlgnum]}</p>`;
+
+        // //내용입력
+        // emptyCreator.innerHTML = 
+        // `<p class="emptyeng">--${nothingDlg[n]}</p> 
+        // <p class="emptykor">--${nothingDlgKor[n]}</p>`;
 
         //적용하기
         document.getElementsByClassName('orderbox')[i-1].appendChild(emptyCreator);
@@ -167,6 +183,37 @@ function addLoader() {
     //만약 내용 같으면 //전에 썼던 코드 기억해서 가져와야함
     if (document.getElementsByClassName('input')[i-1].value === memory[0] ) {
       samenum++;
+
+      //깊게 들어가면
+      if (samenum === 3) {
+        correctDlg.push.apply(correctDlg, correctDlg0);
+        correctDlgKor.push.apply(correctDlgKor, correctDlgKor0);
+      }
+      if (samenum === 7) {
+        correctDlg.push.apply(correctDlg, correctDlg1);
+        correctDlgKor.push.apply(correctDlgKor, correctDlgKor1);
+      }
+      if (samenum === 15) {
+        correctDlg.push.apply(correctDlg, correctDlg2);
+        correctDlgKor.push.apply(correctDlgKor, correctDlgKor2);
+        correctDlg.splice(4,2);
+        correctDlg.splice(5,3);
+        correctDlg.splice(6,1);
+        correctDlg.splice(8,1);
+        correctDlgKor.splice(4,2);
+        correctDlgKor.splice(5,3);
+        correctDlgKor.splice(6,1);
+        correctDlgKor.splice(8,1);
+      }
+      if (samenum === 20) {
+        correctDlg.push.apply(correctDlg, correctDlg3);
+        correctDlgKor.push.apply(correctDlgKor, correctDlgKor3);
+      }
+      if (samenum === 25) {
+        correctDlg.push.apply(correctDlg, correctDlg4);
+        correctDlgKor.push.apply(correctDlgKor, correctDlgKor4);
+      }
+
       sameDlgnum = Math.floor(Math.random()*correctDlg.length);
 
       //전체 상자 생성
@@ -177,20 +224,6 @@ function addLoader() {
       sameCreator.innerHTML = `
       <p class="sameeng">--${correctDlg[sameDlgnum]}</p> 
       <p class="samekor">--${correctDlgKor[sameDlgnum]}</p>`;
-
-      //깊게 들어가면
-      if (samenum === 7) {
-        correctDlg.push.apply(correctDlg, correctDlg1);
-        correctDlgKor.push.apply(correctDlgKor, correctDlgKor1);
-      }
-      if (samenum === 15) {
-        correctDlg.push.apply(correctDlg, correctDlg2);
-        correctDlgKor.push.apply(correctDlgKor, correctDlgKor2);
-      }
-      if (samenum === 20) {
-        correctDlg.push.apply(correctDlg, correctDlg3);
-        correctDlgKor.push.apply(correctDlgKor, correctDlgKor3);
-      }
 
 
       //적용하기
@@ -221,16 +254,6 @@ function addLoader() {
     //만약 내용 다르면 //내용 다른데 일단 입력하기는 했을 때
     if (document.getElementsByClassName('input')[i-1].value != memory[0] && document.getElementsByClassName('input')[i-1].value.length != 0) {
       diffnum++;
-      diffDlgnum = Math.floor(Math.random()*differentDlg.length);
-
-      //전체 상자 생성
-      var diffCreator = document.createElement('div');
-      diffCreator.setAttribute('class', 'diff');
-
-      //내용입력
-      diffCreator.innerHTML = `
-      <p class="diffeng">--${differentDlg[diffDlgnum]}</p> 
-      <p class="diffkor">--${differentDlgKor[diffDlgnum]}</p> `;
 
       //깊게 들어가면
       if (diffnum === 6) {
@@ -245,6 +268,17 @@ function addLoader() {
         differentDlg.push.apply(differentDlg, differentDlg3);
         differentDlgKor.push.apply(differentDlgKor, differentDlgKor3);
       }
+
+      diffDlgnum = Math.floor(Math.random()*differentDlg.length);
+
+      //전체 상자 생성
+      var diffCreator = document.createElement('div');
+      diffCreator.setAttribute('class', 'diff');
+
+      //내용입력
+      diffCreator.innerHTML = `
+      <p class="diffeng">--${differentDlg[diffDlgnum]}</p> 
+      <p class="diffkor">--${differentDlgKor[diffDlgnum]}</p> `;
 
       //적용하기
       document.getElementsByClassName('orderbox')[i-1].appendChild(diffCreator);
@@ -460,7 +494,8 @@ function confirmbtn() {
 
   //이미 단어가 있다는 안내문구
   if (document.getElementById('word').value in localStorage) {
-    let isexcuted = confirm('Word already exists. Procceed?\n이미 있는 단어입니다. 계속할까요?');
+    eAlert = Math.floor(Math.random()*equalAlert.length);
+    let isexcuted = confirm(`${equalAlert[eAlert]}`);
     if (isexcuted) {
       localStorage.setItem( 
         document.getElementById('word').value,
@@ -496,3 +531,4 @@ function confirmbtn() {
   }
 
 }
+
