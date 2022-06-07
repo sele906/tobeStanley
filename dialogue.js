@@ -6,14 +6,12 @@ window.onbeforeunload = function () {
 
 //아무것도 없을 때
 let nothingDlg = [
-  "You're screwed.",
   'Ehem. Hello?',
   "input doesn't exist.",
   'Not Acceptable',
   'wait...wait, what?',
 ];
 let nothingDlgKor = [
-  '망하려고 작정했군요.',
   '에헴, 저기요?',
   '입력값이 존재하지 않습니다',
   '허용되지 않는 요청입니다',
@@ -22,20 +20,20 @@ let nothingDlgKor = [
 
 //5번 이상
 let nothingDlg1 = [
+  "You're screwed.",
   "Can't find the object",
   'User error - Replace User',
   'Task failed successfully.',
   'No! No, no! What are you doing?!',
   'Are you teasing me?',
-
 ];
 let nothingDlgKor1 = [
+  '해고당하려 작정했군요.',
   '오브젝트를 찾을 수 없습니다',
   '사용자 에러 -  교체된 사용자',
   '성공적으로 실패하였습니다.',
   '이럴수는 없어요! 뭐하시는 거죠?!',
   '지금 절 놀리는 건가요?',
-
 ];
 //10번이상
 let nothingDlg2 = [
@@ -43,31 +41,48 @@ let nothingDlg2 = [
   'Time remaining: About 20304958393 hours.',
   "Run as fast as you can and don't look back.",
   "That's weird",
-  'Try input something, would you.',
+  "I'm sorry, is there a problem?",
 ];
 let nothingDlgKor2 = [
   '에러 메세지로 인해 에러가 발생하였습니다',
   '남은 시간: 20304958393 시간.',
   '뒤돌아보지 말고 최대한 빨리 달리세요.',
   "이상하군요",
-  '뭐라도 좀 입력해 보세요.',
+  "혹시 무슨 문제가 있나요?",
 ];
 //15번 이상
 let nothingDlg3 = [
-  'You do that again and see what happens…',
-  "I'm sorry, is there a problem?",
+  'Try input something, would you.',
+  'For really?',
   "Choice is important. It's good for your health",
-  "If you don't want to work THAT much, go out and watch some youtube.",
+  "Just press the button. Is it that hard?",
   "You just couldn't do it, can't you.",
   "I don't understand.",
 ];
 let nothingDlgKor3 = [
-  '또 그런짓을 하면 어떻게 될지 두고봅시다.',
-  "혹시 무슨 문제가 있나요?",
+  '뭐라도 좀 입력해 보세요.',
+  '정말로요?',
   '선택은 중요합니다. 건강에 좋기도 하고요.',
-  '그렇게 일하기 싫으면 나가서 유튜브나 보세요.',
+  '그냥 버튼을 누르는 것 뿐이잖아요. 그게 그렇게 어렵나요?',
   '그냥 하지 않는 거군요, 그렇죠?',
   "전 이해를 못하겠군요.",
+];
+//20번 이상
+let nothingDlg4 = [
+  "If you don't want to work THAT much, go out and watch some youtube.",
+  "That blackness we were looking for",
+  'Look at that cursor. Doing nothing.',
+  "You're favorite button is 'Enter'. Let's give a big applause to 'Enter'.",
+  'I wish I could show you some instructional video.',
+  'You Win! Congratulations.',
+];
+let nothingDlgKor4 = [
+  '그렇게 일하기 싫으면 나가서 유튜브나 보세요.',
+  '우리가 찾던 암흑',
+  '아무것도 하지 않는 저 커서를 보세요.',
+  '당신이 가장 좋아하는 버튼은 "엔터"로군요. "엔터"버튼에 큰 박수를 보냅시다.',
+  '교육 영상을 보여드리면 좋을텐데.',
+  '당신이 이겼어요! 축하합니다.',
 ];
 
 
@@ -85,7 +100,7 @@ let correctDlgKor = [
   '성공.',
 ];
 
-//3번 이상
+//5번 이상
 let correctDlg0 = [
   "I'm quite enjoying this.",
   "I can see you're burning with passion.",
@@ -95,7 +110,7 @@ let correctDlgKor0 = [
   '열정으로 불타는 것이 느껴지는군요.',
 ];
 
-//7번 이상
+//10번 이상
 let correctDlg1 = [
   'Go on',
   'You are doing Great.',
@@ -105,7 +120,6 @@ let correctDlg1 = [
   'I applaud your effort, I really do.',
   "You're deeply fell in love with control.",
   "I'm glad that you liked buttons so much.",
-  "I'm actually humming.",
 ];
 let correctDlgKor1 = [
   '계속하세요',
@@ -116,7 +130,6 @@ let correctDlgKor1 = [
   '당신의 노력에 찬사를 보냅니다. 정말이에요.',
   '통제와 깊은 사랑에 빠졌군요.',
   '당신이 버튼을 좋아해서 다행힙니다.',
-  '콧노래가 나오는군요.',
 ];
 //15번 이상
 let correctDlg2 = [
@@ -134,14 +147,12 @@ let correctDlgKor2 = [
 //20번 이상
 let correctDlg3 = [
   'Did you sleep well recently?',
-  'Play with me.',
   'What are you going to eat for dinner?',
   'What a workaholic.',
   'Your device is sad. Please cheer it up.',
 ];
 let correctDlgKor3 = [
   '최근에 잘 주무셨나요?',
-  '저와 함께 놀아요',
   '저녁으로는 어떤걸 드실건가요?',
   '일벌레같으니라고.',
   '기기가 슬퍼합니다. 위로해 주세요',
@@ -216,21 +227,38 @@ let differentDlgKor2 = [
 ];
 //17번 이상
 let differentDlg3 = [
-  "I'm worried about you.",
+  'I think you need a new glasses.',
+  "It's incredible you weren't fired years ago.",
   'If you want to do something useful, get a proper computer, and a mouse more than one button. Ask an adult to help you buy one.',
   "I'm not even going to try. I'm out... I'm out...",
   'Do you really want to destroy our company?',
-  'Forget about this. What do you do after work?',
+
 ];
 let differentDlgKor3 = [
-  '당신이 걱정됩니다.',
+  '제 생각에 당신은 새로운 안경이 필요한 것 같군요.',
+  '몇 년 전에 해고당하지 않은게 신기할 정도군요.',
   '유용한 일을 하고 싶다면, 좋은 컴퓨터와 하나이상의 버튼이 있는 마우스를 장만하고 어른에게 구매를 부탁하세요.',
   '이제 시도조차 하지 않을겁니다. 전 갈거예요, 갈 거라고요...',
   '정말 우리 회사를 망가뜨리고 싶은 건가요?',
+
+];
+//25번 이상
+let differentDlg4 = [
+  "I'm worried about you.",
+  "I think I know what the problem here. Some cat must be stepping on the keyboard.",
+  "It's you. You are all causing this problem.",
+  'Forget about this. What do you do after work?',
+  'You do that again and see what happens…',
+];
+let differentDlgKor4 = [
+  '당신이 걱정됩니다.',
+  '무엇이 문제인지 알 것 같군요. 고양이가 자판을 밟고 있는게 틀림없어요.', 
+  '당신이 이 모든 문제의 근원이란 말입니다.',
   '이 따위것은 잊어버리죠. 퇴근하면 뭐하시나요?',
+  '또 그런짓을 하면 어떻게 될지 두고봅시다.',
 ];
 
-//지우기
+//새로고침할 때마다 다시 시작하기
 window.localStorage.clear();
 
 window.localStorage.setItem('love', JSON.stringify(["No. You can't. Don't try.", '안됩니다. 하지마세요.']));

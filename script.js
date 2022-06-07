@@ -7,6 +7,11 @@ let ordertime = 0;
 let keynum = 0;
 let i = 0;
 
+//대사 기억
+let Dlgmemory = []; //같을 때 다를때 없을 때 따로따로 메모리 만들지 않고 하나로 통합하니 훨씬 깔끔
+let DlgmemoryKor = [];
+let filterDlg = [];
+
 //대사 횟수
 let nonum = 0;
 let samenum = 0;
@@ -21,7 +26,15 @@ let noDlgnum = 0;
 let sameDlgnum = 0;
 let diffDlgnum = 0;
 
-//let n = 0;
+//중복 체크
+const Noverlap = 0; //for 문 쓸때 변수 겹치지 않게 주의!
+const Soverlap = 1;
+const Doverlap = 2;
+
+//히든대사 보여줄지 여부 결정
+let sflag = false;
+let nflag = false;
+let dflag = false;
 
 //알림창 대사 번호
 let eAlert = 0;
@@ -120,64 +133,121 @@ function addLoader() {
 
     //다른내용 입력했을 때 생성되는 p 찾기 위해 번호 부여 //이걸 여기다 놓으면 엔터 칠때마다 0이 되잖아..
     //let diffnum = 0;
-    //각각에 변수 부여해줬어야 했음
+    //각각의 변수 부여해줬어야 했음
 
     //만약 내용 없으면
+
     if (document.getElementsByClassName('input')[i-1].value.length === 0) {
       nonum++;
-      noDlgnum = Math.floor(Math.random()*nothingDlg.length);
 
-        //만약 깊게 들어가면 //리스트 추가하기?
-        if (nonum === 5) {
-          nothingDlg.push.apply(nothingDlg, nothingDlg1);
-          nothingDlgKor.push.apply(nothingDlgKor, nothingDlgKor1);
+      //만약 깊게 들어가면 //리스트 추가하기?
+      if (nonum === 5) {
+        nothingDlg.push.apply(nothingDlg, nothingDlg1);
+        nothingDlgKor.push.apply(nothingDlgKor, nothingDlgKor1);
+      }
+      if (nonum === 10) {
+        nothingDlg.push.apply(nothingDlg, nothingDlg2);
+        nothingDlgKor.push.apply(nothingDlgKor, nothingDlgKor2);
+      }
+      if (nonum === 15) {
+        nothingDlg.push.apply(nothingDlg, nothingDlg3);
+        nothingDlgKor.push.apply(nothingDlgKor, nothingDlgKor3);
+      }
+      //히든대사
+      if (nonum >= 20) {
+        for (num = 0; num < filterDlg.length - 2; num++) { 
+          if (
+            filterDlg[filterDlg.length -1] === 0 && 
+            filterDlg[filterDlg.length -2] === 0 && 
+            filterDlg[filterDlg.length -3] === 0 && 
+            filterDlg[filterDlg.length -4] === 0 &&
+            filterDlg[filterDlg.length -5] === 0) { 
+            nflag = true;
+          } else {
+            nflag = false;
+          }
         }
-        if (nonum === 10) {
-          nothingDlg.push.apply(nothingDlg, nothingDlg2);
-          nothingDlgKor.push.apply(nothingDlgKor, nothingDlgKor2);
+        if (nflag === true) {
+          if (nothingDlg.length === 21) {
+            nothingDlg.push.apply(nothingDlg, nothingDlg4);
+            nothingDlgKor.push.apply(nothingDlgKor, nothingDlgKor4);
+          }
+        } 
+        if (nflag === false) {
+          if (nothingDlg.length === 27) {
+            nothingDlg.splice(21, 6);
+            nothingDlgKor.splice(21, 6);
+          } 
         }
-        if (nonum === 15) {
-          nothingDlg.push.apply(nothingDlg, nothingDlg3);
-          nothingDlgKor.push.apply(nothingDlgKor, nothingDlgKor3);
-        }
+      }
 
-        //전체 상자 생성
-        var emptyCreator = document.createElement('div');
-        emptyCreator.setAttribute('class', 'empty');
+      //전체 상자 생성
+      var emptyCreator = document.createElement('div');
+      emptyCreator.setAttribute('class', 'empty');
+
+      //중복 피하기
+
+      if (Dlgmemory.length === 7) {
+        //영어
+        let newnothingDlg = nothingDlg.filter(x => !Dlgmemory.includes(x));
+        noDlgnum = Math.floor(Math.random()*newnothingDlg.length);
+        Dlgmemory.push(newnothingDlg[noDlgnum]);
+
+        //한국어
+        let newnothingDlgKor = nothingDlgKor.filter(x => !DlgmemoryKor.includes(x));
+        DlgmemoryKor.push(newnothingDlgKor[noDlgnum]);
+
+        //내용입력
+        emptyCreator.innerHTML = 
+        `<p class="emptyeng">--${newnothingDlg[noDlgnum]}</p> 
+        <p class="emptykor">--${newnothingDlgKor[noDlgnum]}</p>`;
+      } else {
+        //영어
+        noDlgnum = Math.floor(Math.random()*nothingDlg.length);
+        Dlgmemory.push(nothingDlg[noDlgnum]);
+
+        //한국어
+        DlgmemoryKor.push(nothingDlgKor[noDlgnum]);
 
         //내용입력
         emptyCreator.innerHTML = 
         `<p class="emptyeng">--${nothingDlg[noDlgnum]}</p> 
         <p class="emptykor">--${nothingDlgKor[noDlgnum]}</p>`;
+      }
 
-        // //내용입력
-        // emptyCreator.innerHTML = 
-        // `<p class="emptyeng">--${nothingDlg[n]}</p> 
-        // <p class="emptykor">--${nothingDlgKor[n]}</p>`;
 
-        //적용하기
-        document.getElementsByClassName('orderbox')[i-1].appendChild(emptyCreator);
-  
-        //언어여부
-        if (lang === 1) {
-          let children = document.getElementsByClassName("empty")[nonum-1].getElementsByTagName("*");
-          for (let item of children) {
-            item.style.fontFamily = 'NeoDunggeunmo';
-          }
-          
-          document.getElementsByClassName("emptykor")[nonum-1].style.display = 'inline-block';
-          document.getElementsByClassName("emptyeng")[nonum-1].style.display = 'none';
+
+      // //내용입력
+      // emptyCreator.innerHTML = 
+      // `<p class="emptyeng">--${nothingDlg[n]}</p> 
+      // <p class="emptykor">--${nothingDlgKor[n]}</p>`;
+
+      //적용하기
+      document.getElementsByClassName('orderbox')[i-1].appendChild(emptyCreator);
+
+      //언어여부
+      if (lang === 1) {
+        let children = document.getElementsByClassName("empty")[nonum-1].getElementsByTagName("*");
+        for (let item of children) {
+          item.style.fontFamily = 'NeoDunggeunmo';
         }
-  
-        if (lang === 0) {
-  
-          let children = document.getElementsByClassName("empty")[nonum-1].getElementsByTagName("*");
-          for (let item of children) {
-            item.style.fontFamily = 'Roboto Mono;';
-          }
-          document.getElementsByClassName("emptyeng")[nonum-1].style.display = 'inline-block';
-          document.getElementsByClassName("emptykor")[nonum-1].style.display = 'none';
+        
+        document.getElementsByClassName("emptykor")[nonum-1].style.display = 'inline-block';
+        document.getElementsByClassName("emptyeng")[nonum-1].style.display = 'none';
+      }
+
+      if (lang === 0) {
+
+        let children = document.getElementsByClassName("empty")[nonum-1].getElementsByTagName("*");
+        for (let item of children) {
+          item.style.fontFamily = 'Roboto Mono;';
         }
+        document.getElementsByClassName("emptyeng")[nonum-1].style.display = 'inline-block';
+        document.getElementsByClassName("emptykor")[nonum-1].style.display = 'none';
+      }
+
+      //중복체크
+      filterDlg.push(Noverlap);
     }
 
     //만약 내용 같으면 //전에 썼던 코드 기억해서 가져와야함
@@ -185,45 +255,91 @@ function addLoader() {
       samenum++;
 
       //깊게 들어가면
-      if (samenum === 3) {
+      if (samenum === 5) {
         correctDlg.push.apply(correctDlg, correctDlg0);
         correctDlgKor.push.apply(correctDlgKor, correctDlgKor0);
       }
-      if (samenum === 7) {
+      if (samenum === 10) {
         correctDlg.push.apply(correctDlg, correctDlg1);
         correctDlgKor.push.apply(correctDlgKor, correctDlgKor1);
       }
-      if (samenum === 15) {
+      if (samenum === 20) {
         correctDlg.push.apply(correctDlg, correctDlg2);
         correctDlgKor.push.apply(correctDlgKor, correctDlgKor2);
         correctDlg.splice(4,2);
         correctDlg.splice(5,3);
         correctDlg.splice(6,1);
-        correctDlg.splice(8,1);
+        correctDlg.splice(7,1);
         correctDlgKor.splice(4,2);
         correctDlgKor.splice(5,3);
         correctDlgKor.splice(6,1);
-        correctDlgKor.splice(8,1);
+        correctDlgKor.splice(7,1);
       }
-      if (samenum === 20) {
+      if (samenum === 25) {
         correctDlg.push.apply(correctDlg, correctDlg3);
         correctDlgKor.push.apply(correctDlgKor, correctDlgKor3);
       }
-      if (samenum === 25) {
-        correctDlg.push.apply(correctDlg, correctDlg4);
-        correctDlgKor.push.apply(correctDlgKor, correctDlgKor4);
+      //히든 대사
+      if (samenum >= 30) {
+        for (num = 0; num < filterDlg.length - 2; num++) { 
+          if (
+            filterDlg[filterDlg.length -1] === 1 && 
+            filterDlg[filterDlg.length -2] === 1 && 
+            filterDlg[filterDlg.length -3] === 1 && 
+            filterDlg[filterDlg.length -4] === 1 &&
+            filterDlg[filterDlg.length -5] === 1) { 
+            sflag = true;
+          } else {
+            sflag = false;
+          }
+        }
+        if (sflag === true) {
+          if (correctDlg.length === 15) {
+            correctDlg.push.apply(correctDlg, correctDlg4);
+            correctDlgKor.push.apply(correctDlgKor, correctDlgKor4);
+          }
+        } 
+        if (sflag === false) {
+          if (correctDlg.length === 20) {
+            correctDlg.splice(15, 5);
+            correctDlgKor.splice(15, 5);
+          } 
+        }
       }
 
-      sameDlgnum = Math.floor(Math.random()*correctDlg.length);
 
       //전체 상자 생성
       var sameCreator = document.createElement('div');
       sameCreator.setAttribute('class', 'same');
 
-      //내용입력
-      sameCreator.innerHTML = `
-      <p class="sameeng">--${correctDlg[sameDlgnum]}</p> 
-      <p class="samekor">--${correctDlgKor[sameDlgnum]}</p>`;
+      //중복 피하기
+      if (Dlgmemory.length === 7) {
+        //영어
+        let newcorrectDlg = correctDlg.filter(x => !Dlgmemory.includes(x));
+        sameDlgnum = Math.floor(Math.random()*newcorrectDlg.length);
+        Dlgmemory.push(newcorrectDlg[sameDlgnum]);
+
+        //한국어
+        let newcorrectDlgKor = correctDlgKor.filter(x => !DlgmemoryKor.includes(x));
+        DlgmemoryKor.push(newcorrectDlgKor[sameDlgnum]);
+
+        //내용입력
+        sameCreator.innerHTML = 
+        `<p class="sameeng">--${newcorrectDlg[sameDlgnum]}</p> 
+        <p class="samekor">--${newcorrectDlgKor[sameDlgnum]}</p>`;
+      } else {
+        //영어
+        sameDlgnum = Math.floor(Math.random()*correctDlg.length);
+        Dlgmemory.push(correctDlg[sameDlgnum]);
+
+        //한국어
+        DlgmemoryKor.push(correctDlgKor[sameDlgnum]);
+
+        //내용입력
+        sameCreator.innerHTML = `
+        <p class="sameeng">--${correctDlg[sameDlgnum]}</p> 
+        <p class="samekor">--${correctDlgKor[sameDlgnum]}</p> `;
+      }
 
 
       //적용하기
@@ -249,6 +365,9 @@ function addLoader() {
         document.getElementsByClassName("sameeng")[samenum-1].style.display = 'inline-block';
         document.getElementsByClassName("samekor")[samenum-1].style.display = 'none';
       }
+
+      //중복체크
+      filterDlg.push(Soverlap);
     }
 
     //만약 내용 다르면 //내용 다른데 일단 입력하기는 했을 때
@@ -268,17 +387,71 @@ function addLoader() {
         differentDlg.push.apply(differentDlg, differentDlg3);
         differentDlgKor.push.apply(differentDlgKor, differentDlgKor3);
       }
-
-      diffDlgnum = Math.floor(Math.random()*differentDlg.length);
+      //히든대사
+      if (diffnum >= 22) {
+        for (num = 0; num < filterDlg.length - 2; num++) { 
+          if (
+            filterDlg[filterDlg.length -1] === 2 && 
+            filterDlg[filterDlg.length -2] === 2 && 
+            filterDlg[filterDlg.length -3] === 2 && 
+            filterDlg[filterDlg.length -4] === 2 &&
+            filterDlg[filterDlg.length -5] === 2) { 
+            dflag = true;
+          } else {
+            dflag = false;
+          }
+        }
+        if (dflag === true) {
+          if (differentDlg.length === 22) {
+            differentDlg.push.apply(differentDlg, differentDlg4);
+            differentDlgKor.push.apply(differentDlgKor, differentDlgKor4);
+          }
+        } 
+        if (dflag === false) {
+          if (differentDlg.length === 27) {
+            differentDlg.splice(22, 5);
+            differentDlgKor.splice(22, 5);
+          } 
+        }
+      }
 
       //전체 상자 생성
       var diffCreator = document.createElement('div');
       diffCreator.setAttribute('class', 'diff');
 
-      //내용입력
-      diffCreator.innerHTML = `
-      <p class="diffeng">--${differentDlg[diffDlgnum]}</p> 
-      <p class="diffkor">--${differentDlgKor[diffDlgnum]}</p> `;
+      //중복 피하기
+      if (Dlgmemory.length === 7) {
+        //영어
+        let newdifferentDlg = differentDlg.filter(x => !Dlgmemory.includes(x));
+        diffDlgnum = Math.floor(Math.random()*newdifferentDlg.length);
+        Dlgmemory.push(newdifferentDlg[diffDlgnum]);
+
+        //한국어
+        let newdifferentDlgKor = differentDlgKor.filter(x => !DlgmemoryKor.includes(x));
+        DlgmemoryKor.push(newdifferentDlgKor[diffDlgnum]);
+
+        //내용입력
+        diffCreator.innerHTML = 
+        `<p class="diffeng">--${newdifferentDlg[diffDlgnum]}</p> 
+        <p class="diffkor">--${newdifferentDlgKor[diffDlgnum]}</p>`;
+      } else {
+        //영어
+        diffDlgnum = Math.floor(Math.random()*differentDlg.length);
+        Dlgmemory.push(differentDlg[diffDlgnum]);
+
+        //한국어
+        DlgmemoryKor.push(differentDlgKor[diffDlgnum]);
+
+        //내용입력
+        diffCreator.innerHTML = `
+        <p class="diffeng">--${differentDlg[diffDlgnum]}</p> 
+        <p class="diffkor">--${differentDlgKor[diffDlgnum]}</p> `;
+      }
+
+      // //내용입력
+      // diffCreator.innerHTML = `
+      // <p class="diffeng">--${differentDlg[diffDlgnum]}</p> 
+      // <p class="diffkor">--${differentDlgKor[diffDlgnum]}</p> `;
 
       //적용하기
       document.getElementsByClassName('orderbox')[i-1].appendChild(diffCreator);
@@ -303,6 +476,9 @@ function addLoader() {
         document.getElementsByClassName("diffeng")[diffnum-1].style.display = 'inline-block';
         document.getElementsByClassName("diffkor")[diffnum-1].style.display = 'none';
       }
+
+      //중복체크
+      filterDlg.push(Doverlap);
     }
 
     //이벤트
@@ -350,6 +526,15 @@ function addLoader() {
 
       //내용 다를 때 나타나는 문구 숨기기
       document.getElementsByClassName('diff')[diffnum-1].style.display = 'none';
+    }
+
+    //메모리 정돈
+    if (Dlgmemory.length >= 8) {
+      Dlgmemory.shift();
+      filterDlg.shift();
+    }
+    if (DlgmemoryKor.length >= 8) {
+      DlgmemoryKor.shift();
     }
   }
 }
@@ -531,4 +716,3 @@ function confirmbtn() {
   }
 
 }
-
