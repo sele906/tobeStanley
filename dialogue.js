@@ -103,18 +103,20 @@ let correctDlgKor = [
 //5번 이상
 let correctDlg0 = [
   "I'm quite enjoying this.",
-  "I can see you're burning with passion.",
+  'Go on',
+  'Program activatied',
+  'You are doing Great.',
 ];
 let correctDlgKor0 = [
   '꽤나 즐겁군요.',
-  '열정으로 불타는 것이 느껴지는군요.',
+  '계속하세요',
+  '프로그램이 활성화 되었습니다',
+  '멋지게 해내고 있습니다',
 ];
 
 //10번 이상
 let correctDlg1 = [
-  'Go on',
-  'You are doing Great.',
-  'Program activatied',
+  "I can see you're burning with passion.",
   "You're so GOOD at this, everyone is admiring you!",
   'Random error just to annoy you.',
   'I applaud your effort, I really do.',
@@ -122,9 +124,7 @@ let correctDlg1 = [
   "I'm glad that you liked buttons so much.",
 ];
 let correctDlgKor1 = [
-  '계속하세요',
-  '멋지게 해내고 있습니다',
-  '프로그램이 활성화 되었습니다',
+  '열정으로 불타는 것이 느껴지는군요.',
   '당신은 무척 뛰어나서, 모두가 당신을 우러러보고 있습니다!',
   '당신을 짜증나게 하기 위한 무작위 에러입니다.',
   '당신의 노력에 찬사를 보냅니다. 정말이에요.',
@@ -136,24 +136,24 @@ let correctDlg2 = [
   'Are you enjoying this? Why?',
   'Your device is lonely.',
   'Go outside and see the sun for once and enjoy life.',
-  "Is this want you wanted? Living a controlled Life?"
+  'Happy?',
 ];
 let correctDlgKor2 = [
   '이 일을 즐기고 있나요? 이유가 뭐죠?',
   '당신의 기기가 외로워합니다.',
   '밖에 나가서 햇볕도 보고 삶을 즐기세요.',
-  '이게 당신이 원하던 것인가요? 통제된 삶을 사는 것?',
+  '즐거우신가요?',
 ];
 //20번 이상
 let correctDlg3 = [
   'Did you sleep well recently?',
-  'What are you going to eat for dinner?',
+  "Is this want you wanted? Living a controlled Life?",
   'What a workaholic.',
   'Your device is sad. Please cheer it up.',
 ];
 let correctDlgKor3 = [
   '최근에 잘 주무셨나요?',
-  '저녁으로는 어떤걸 드실건가요?',
+  '이게 당신이 원하던 것인가요? 통제된 삶을 사는 것?',
   '일벌레같으니라고.',
   '기기가 슬퍼합니다. 위로해 주세요',
 ];
@@ -307,10 +307,8 @@ let saveAlert = [
   'Saved.\n저장되었습니다.',
   'Saved.\n저장되었습니다.',
   'I like that word.\n그 단어 마음에 듭니다.',
-  'Do I have to say that? ...Well, okay.\n제가 그걸 말해야 하나요? ...음, 알았어요.',
   'Hm... I quite like that.\n흠... 그거 좋군요.',
   "Hm... I'll accept that.\n흠... 뭐 받아들이죠.",
   "I'll remember that.\n기억해두고 있을게요.",
-  '...Okay.\n...알겠습니다.',
   "It's our little secret.\n이건 우리사이의 작은 비밀입니다."
 ];
