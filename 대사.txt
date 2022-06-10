@@ -39,12 +39,6 @@ Are you drunk? 술에 취했나요?
 You do that again and see what happens… 또 그런짓을 하면 어떻게 될지 두고봅시다.
 Please leave a dislike. 싫어요를 남겨주세요.
 I'm worried about you. 당신이 걱정됩니다.
-<a href="https://www.flaticon.com/free-icons/old" title="old icons">Old icons created by Freepik - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/old-computer" title="old computer icons">Old computer icons created by Freepik - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/old-computer" title="old computer icons">Old computer icons created by juicy_fish - Flaticon</a>
-8: 
-love: No. You can't. Don't try. 그럴 수 없습니다. 시도조차 하지마세요.
-sleep: Please, take your time.
 
 Farewell, Stanley.
 Well, try the other one then.
@@ -80,3 +74,11 @@ Are you teasing me?
 You see? There's nothing here.
 You heartless bastard.
 I'm not even going to try. 
+
+8: 
+love: No. You can't. Don't try. 그럴 수 없습니다. 시도조차 하지마세요.
+sleep: Please, take your time.
+
+<a href="https://www.flaticon.com/free-icons/old" title="old icons">Old icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/old-computer" title="old computer icons">Old computer icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/old-computer" title="old computer icons">Old computer icons created by juicy_fish - Flaticon</a>
