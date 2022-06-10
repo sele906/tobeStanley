@@ -41,16 +41,16 @@ By pressing the button according to the actual instructions, you can be a Stanle
 
 ## how to use
 
-1. There are three choices.   
+1. There are three choices.      
 * Press the correct button.
 * Press the wrong button.
-* Don't press anything.
+* Don't press anything.   
 Take a look at the narrator's response to each choice
 
-2. Translate
+2. Translate   
 You can change the language to English <-> Korean by pressing the translation button in the upper right corner.
 
-3. Add dialogue
+3. Add dialogue   
 Are you tired of watching the same lines over and over?   
 * You can add any word (or sentence) you want by clicking the plus button next to the translation button.  
 (Please enter the word (or sentence) with capslock turned off.)   
