@@ -1,7 +1,7 @@
 //window.localStorage.clear();
 
 
-const orderbtn = ['Escape', 'Delete', 'Shift', 'Control', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'F2', 'F8', 'F9', '8', 's', 'y', 'u', 'w', 'p', 'm', 'v', 'n', 'z', 'o', 'q'];
+const orderbtn = ['Escape', 'Delete', 'Control', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'F2', 'F8', 'F9', '8', 's', 'y', 'u', 'w', 'p', 'm', 'v', 'n', 'z', 'o', 'q'];
 let memory = ['dummy', 'Escape'];
 let ordertime = 0;
 let keynum = 0;
@@ -122,7 +122,7 @@ function addLoader() {
     document.getElementsByClassName('input')[i].addEventListener('keydown', function(event) {
       const key = event.key; 
 
-      if (key === 'Delete' || key === 'Escape' || key === 'CapsLock' || key === 'Shift' || key === 'Control' || key === 'ArrowLeft' || key === 'ArrowUp' || key === 'ArrowRight' || key === 'ArrowDown' || key === 'F2' || key === 'F6' || key === 'F8' || key === 'F9') {     
+      if (key === 'Delete' || key === 'Escape' || key === 'CapsLock' || key === 'Control' || key === 'ArrowLeft' || key === 'ArrowUp' || key === 'ArrowRight' || key === 'ArrowDown' || key === 'F2' || key === 'F6' || key === 'F8' || key === 'F9') {     
         document.getElementsByClassName('input')[i].value = key;
       }
     });

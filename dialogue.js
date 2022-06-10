@@ -6,12 +6,14 @@ window.onbeforeunload = function () {
 
 //아무것도 없을 때
 let nothingDlg = [
+  // '',
   'Ehem. Hello?',
   "input doesn't exist.",
   'Not Acceptable',
   'wait...wait, what?',
 ];
 let nothingDlgKor = [
+  // '',
   '에헴, 저기요?',
   '입력값이 존재하지 않습니다',
   '허용되지 않는 요청입니다',
@@ -134,24 +136,26 @@ let correctDlgKor1 = [
 //15번 이상
 let correctDlg2 = [
   'Are you enjoying this? Why?',
-  'Your device is lonely.',
+
   'Go outside and see the sun for once and enjoy life.',
   'Happy?',
 ];
 let correctDlgKor2 = [
   '이 일을 즐기고 있나요? 이유가 뭐죠?',
-  '당신의 기기가 외로워합니다.',
+
   '밖에 나가서 햇볕도 보고 삶을 즐기세요.',
   '즐거우신가요?',
 ];
 //20번 이상
 let correctDlg3 = [
+  'Your device is lonely.',
   'Did you sleep well recently?',
   "Is this want you wanted? Living a controlled Life?",
   'What a workaholic.',
   'Your device is sad. Please cheer it up.',
 ];
 let correctDlgKor3 = [
+  '당신의 기기가 외로워합니다.',
   '최근에 잘 주무셨나요?',
   '이게 당신이 원하던 것인가요? 통제된 삶을 사는 것?',
   '일벌레같으니라고.',
@@ -159,14 +163,14 @@ let correctDlgKor3 = [
 ];
 //25번 이상
 let correctDlg4 = [
-  'Suffer, you workaholic demon.',
+  'Happy, happy Stanley.',
   "I'm starting to wonder if you're an AI",
   "I've never seen an employee like you.",
   'Work, work, always work.',
   "It's that button causing all problem. You're drawn to it.",
 ];
 let correctDlgKor4 = [
-  '고통받거라, 이 일벌레 괴물.',
+  '행복하고도 행복한 스탠리.',
   '당신이 AI가 아닌지 궁금해지기 시작했습니다.',
   '당신같은 직원을 본 적이 없어요.',
   '일, 일, 항상 일.',
@@ -180,7 +184,7 @@ let differentDlg = [
   "input doesn't match",
   'Bad Request',
   'Forbidden',
-  "This isn't right at all!",
+  "This isn't right at all.",
 ];
 let differentDlgKor = [
   '해고되기를 바라는 겁니까?',
@@ -188,7 +192,7 @@ let differentDlgKor = [
   '입력값이 일치하지 않습니다',
   '요청 실패',
   '금지',
-  '이건 전혀 다르잖아요!',
+  '전혀 다릅니다.',
 ];
 
 //6번 이상
