@@ -263,7 +263,7 @@ let differentDlgKor4 = [
 ];
 
 //새로고침할 때마다 다시 시작하기
-window.localStorage.clear();
+//window.localStorage.clear();
 
 window.localStorage.setItem('love', JSON.stringify(["No. You can't. Don't try.", '안됩니다. 하지마세요.']));
 window.localStorage.setItem('stanley', JSON.stringify(['Why are you endtering your own name? You narcissist.', '당신이름은 왜 입력하시는 거죠? 이런 나르시스트 같으니.']));
