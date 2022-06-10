@@ -41,14 +41,6 @@ let eAlert = 0;
 let nAlert = 0;
 let sAlert = 0;
 
-//배열 섞기 함수
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-
 //첫 시작 특수한 키
 //key === 'Shift' ||
 document.getElementsByClassName('input')[i].addEventListener('keydown', function(event) {
