@@ -1,4 +1,4 @@
-# 427번 직원이 되어보세요
+# 427번 직원이 되는 법
 
 <img src="https://user-images.githubusercontent.com/81071162/173070334-bfc17f72-709f-4c4a-9e5d-9dc1d8305932.png" width="900" height="400">
 
