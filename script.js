@@ -509,7 +509,7 @@ function addLoader() {
     }
 
     //만약 내용 같으면 //전에 썼던 코드 기억해서 가져와야함
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && document.getElementsByClassName('input')[i-1].value.toLowerCase() === Mmemory[0] && document.getElementsByClassName('input')[i-1].value != memory[0]) {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && document.getElementsByClassName('input')[i-1].value.toLowerCase() === Mmemory[0]) {
         samenum++;
   
         //깊게 들어가면
