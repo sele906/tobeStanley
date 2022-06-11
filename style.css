@@ -389,7 +389,6 @@ header .menu:active {
 @media (pointer:none), (pointer:coarse) {
   #Edlgsave .choose {
     background-color: #000;
-    border: none;
     box-shadow: none;
   }
 }
