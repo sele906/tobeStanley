@@ -74,7 +74,7 @@ header .menu:active {
   left: 0;
   right: 0;
   margin: auto;
-  
+
   display: none;
   flex-direction: column;
   /* flex: 1 5 1; */
@@ -287,11 +287,11 @@ header .menu:active {
     left: 50%;
     margin-left: -150px; 
     margin-top: -110px;  */
-    top: 0;
+    /* top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto;
+    margin: auto; */
   }
 
   #Edlginput {
@@ -363,11 +363,11 @@ header .menu:active {
     left: 50%;
     margin-left: -150px; 
     margin-top: -110px;  */
-    top: 0;
+    /* top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto;
+    margin: auto; */
   }
 
   #Edlginput {
