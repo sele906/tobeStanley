@@ -124,7 +124,7 @@ function addLoader() {
             <div class="ordercontentkor" style="display: none;">키보드에 있는 '${mobileorderbtn[keynum]}' 버튼을 ${Math.floor((Math.random() * (70 - 10) + 10))}ms동안 누르십시오.</div>`
     
           + `</div> 
-        <input type="text" class="input" onKeyPress="addLoader()" spellcheck="false" style="font-family: NeoDunggeunmo">
+        <input type="text" class="input" onKeyPress="addLoader()" spellcheck="false" style="font-family: Roboto Mono">
         `; 
       } else {
         _div.innerHTML = `
@@ -288,7 +288,7 @@ function addLoader() {
     }
 
     //만약 내용 같으면 //전에 썼던 코드 기억해서 가져와야함
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && document.getElementsByClassName('input')[i-1].value === Mmemory[0]) {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && document.getElementsByClassName('input')[i-1].value === Mmemory[0] && document.getElementsByClassName('input')[i-1].value != memory[0]) {
         samenum++;
   
         //깊게 들어가면
@@ -525,7 +525,7 @@ function addLoader() {
     }
 
     //만약 내용 다르면 //내용 다른데 일단 입력하기는 했을 때
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && document.getElementsByClassName('input')[i-1].value != Mmemory[0] && document.getElementsByClassName('input')[i-1].value.length != 0) {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && document.getElementsByClassName('input')[i-1].value != Mmemory[0] && document.getElementsByClassName('input')[i-1].value.length != 0 && document.getElementsByClassName('input')[i-1].value != memory[0]) {
         diffnum++;
   
         //깊게 들어가면
