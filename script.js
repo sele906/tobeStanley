@@ -4,7 +4,7 @@
 const orderbtn = ['Escape', 'Delete', 'Control', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'F2', 'F8', 'F9', '8', 's', 'y', 'u', 'w', 'p', 'm', 'v', 'n', 'z', 'o', 'q'];
 const mobileorderbtn = ['8', 's', 'y', 'u', 'w', 'p', 'm', 'v', 'n', 'z', 'o', 'q', 'f', 'e', 't', 'b', 'c', 'x', 'g', 'a', 'r', 'k'];
 let memory = ['dummy', 'Escape'];
-let Mmemory = ['dummy', 'y'];
+let Mmemory = ['dummy', 'y']; //모바일용 
 let ordertime = 0;
 let keynum = 0;
 let i = 0;
@@ -120,8 +120,8 @@ function addLoader() {
             <div class="textstart">></div>` + 
     
             //명령어 언어 바꾸기
-            `<div class="ordercontent" style="display: none;">Please PRESS '${mobileorderbtn[keynum]}' on your KEYBOARD for ${Math.floor((Math.random() * (70 - 10) + 10))}ms.</div> 
-            <div class="ordercontentkor" style="display: inline-block;">키보드에 있는 '${mobileorderbtn[keynum]}' 버튼을 ${Math.floor((Math.random() * (70 - 10) + 10))}ms동안 누르십시오.</div>`
+            `<div class="ordercontent" style="display: inline-block;">Please PRESS '${mobileorderbtn[keynum]}' on your KEYBOARD for ${Math.floor((Math.random() * (70 - 10) + 10))}ms.</div> 
+            <div class="ordercontentkor" style="display: none;">키보드에 있는 '${mobileorderbtn[keynum]}' 버튼을 ${Math.floor((Math.random() * (70 - 10) + 10))}ms동안 누르십시오.</div>`
     
           + `</div> 
         <input type="text" class="input" onKeyPress="addLoader()" spellcheck="false" style="font-family: NeoDunggeunmo">
@@ -525,7 +525,116 @@ function addLoader() {
     }
 
     //만약 내용 다르면 //내용 다른데 일단 입력하기는 했을 때
-    if (document.getElementsByClassName('input')[i-1].value != memory[0] && document.getElementsByClassName('input')[i-1].value.length != 0) {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && document.getElementsByClassName('input')[i-1].value != Mmemory[0] && document.getElementsByClassName('input')[i-1].value.length != 0) {
+        diffnum++;
+  
+        //깊게 들어가면
+        if (diffnum === 6) {
+          differentDlg.push.apply(differentDlg, differentDlg1);
+          differentDlgKor.push.apply(differentDlgKor, differentDlgKor1);
+        }
+        if (diffnum === 12) {
+          differentDlg.push.apply(differentDlg, differentDlg2);
+          differentDlgKor.push.apply(differentDlgKor, differentDlgKor2);
+        }
+        if (diffnum === 17) {
+          differentDlg.push.apply(differentDlg, differentDlg3);
+          differentDlgKor.push.apply(differentDlgKor, differentDlgKor3);
+        }
+        //히든대사
+        if (diffnum >= 22) {
+          for (num = 0; num < filterDlg.length - 2; num++) { 
+            if (
+              filterDlg[filterDlg.length -1] === 2 && 
+              filterDlg[filterDlg.length -2] === 2 && 
+              filterDlg[filterDlg.length -3] === 2 && 
+              filterDlg[filterDlg.length -4] === 2 &&
+              filterDlg[filterDlg.length -5] === 2) { 
+              dflag = true;
+            } else {
+              dflag = false;
+            }
+          }
+          if (dflag === true) {
+            if (differentDlg.length === 22) {
+              differentDlg.push.apply(differentDlg, differentDlg4);
+              differentDlgKor.push.apply(differentDlgKor, differentDlgKor4);
+            }
+          } 
+          if (dflag === false) {
+            if (differentDlg.length === 27) {
+              differentDlg.splice(22, 5);
+              differentDlgKor.splice(22, 5);
+            } 
+          }
+        }
+  
+        //전체 상자 생성
+        var diffCreator = document.createElement('div');
+        diffCreator.setAttribute('class', 'diff');
+  
+        //중복 피하기
+        if (Dlgmemory.length === 7) {
+          //영어
+          let newdifferentDlg = differentDlg.filter(x => !Dlgmemory.includes(x));
+          diffDlgnum = Math.floor(Math.random()*newdifferentDlg.length);
+          Dlgmemory.push(newdifferentDlg[diffDlgnum]);
+  
+          //한국어
+          let newdifferentDlgKor = differentDlgKor.filter(x => !DlgmemoryKor.includes(x));
+          DlgmemoryKor.push(newdifferentDlgKor[diffDlgnum]);
+  
+          //내용입력
+          diffCreator.innerHTML = 
+          `<p class="diffeng">--${newdifferentDlg[diffDlgnum]}</p> 
+          <p class="diffkor">--${newdifferentDlgKor[diffDlgnum]}</p>`;
+        } else {
+          //영어
+          diffDlgnum = Math.floor(Math.random()*differentDlg.length);
+          Dlgmemory.push(differentDlg[diffDlgnum]);
+  
+          //한국어
+          DlgmemoryKor.push(differentDlgKor[diffDlgnum]);
+  
+          //내용입력
+          diffCreator.innerHTML = `
+          <p class="diffeng">--${differentDlg[diffDlgnum]}</p> 
+          <p class="diffkor">--${differentDlgKor[diffDlgnum]}</p> `;
+        }
+  
+        // //내용입력
+        // diffCreator.innerHTML = `
+        // <p class="diffeng">--${differentDlg[diffDlgnum]}</p> 
+        // <p class="diffkor">--${differentDlgKor[diffDlgnum]}</p> `;
+  
+        //적용하기
+        document.getElementsByClassName('orderbox')[i-1].appendChild(diffCreator);
+  
+        //언어 여부
+        if (lang === 1) {
+          let children = document.getElementsByClassName("diff")[diffnum-1].getElementsByTagName("*");
+          for (let item of children) {
+            item.style.fontFamily = 'NeoDunggeunmo';
+          }
+          
+          document.getElementsByClassName("diffkor")[diffnum-1].style.display = 'inline-block';
+          document.getElementsByClassName("diffeng")[diffnum-1].style.display = 'none';
+          
+        }
+        if (lang === 0) {
+  
+          let children = document.getElementsByClassName("diff")[diffnum-1].getElementsByTagName("*");
+          for (let item of children) {
+            item.style.fontFamily = 'Roboto Mono;';
+          }
+          document.getElementsByClassName("diffeng")[diffnum-1].style.display = 'inline-block';
+          document.getElementsByClassName("diffkor")[diffnum-1].style.display = 'none';
+        }
+  
+        //중복체크
+        filterDlg.push(Doverlap);
+  
+    } else if (document.getElementsByClassName('input')[i-1].value != memory[0] && document.getElementsByClassName('input')[i-1].value.length != 0) {
       diffnum++;
 
       //깊게 들어가면
