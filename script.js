@@ -46,8 +46,8 @@ let sAlert = 0;
 //모바일 첫시작
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   // some code..
-  document.getElementsByClassName('ordercontent')[0].innerHTML = "Please PRESS 'y' on your KEYBOARD for 35ms.";
-  document.getElementsByClassName('ordercontentkor')[0].innerHTML = "키보드에 있는 'y' 버튼을 35ms동안 누르십시오.";
+  document.getElementById('firstorder').innerHTML = "Please PRESS 'y' on your KEYBOARD for 35ms.";
+  document.getElementById('firstorderkor').innerHTML = "키보드에 있는 'y' 버튼을 35ms동안 누르십시오.";
 }
 
 //첫 시작 특수한 키
