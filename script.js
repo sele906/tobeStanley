@@ -45,7 +45,10 @@ let sAlert = 0;
 //key === 'Shift' ||
 document.getElementsByClassName('input')[i].addEventListener('keydown', function(event) {
   const key = event.key; 
-
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    // some code..
+    document.getElementsByClassName('input')[i].value = 'hello';
+   }
   if (key === 'Delete' || key === 'Escape' || key === 'CapsLock' ||  key === 'Control' || key === 'ArrowLeft' || key === 'ArrowUp' || key === 'ArrowRight' || key === 'ArrowDown' || key === 'F2' || key === 'F6' || key === 'F8' || key === 'F9') {     
     document.getElementsByClassName('input')[i].value = key;
   }
