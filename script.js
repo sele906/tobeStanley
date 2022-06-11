@@ -74,21 +74,6 @@ function addLoader() {
  
     //한국어라면
     if (lang === 1) {
-
-      _div.innerHTML = `
-      <div class="divisionline">---</div> 
-        <div class="order"> 
-          <div class="textstart">></div>` + 
-  
-          //명령어 언어 바꾸기
-          `<div class="ordercontent" style="display: none;">Please PRESS '${orderbtn[keynum]}' on your KEYBOARD for ${Math.floor((Math.random() * (70 - 10) + 10))}ms.</div> 
-          <div class="ordercontentkor" style="display: inline-block;">키보드에 있는 '${orderbtn[keynum]}' 버튼을 ${Math.floor((Math.random() * (70 - 10) + 10))}ms동안 누르십시오.</div>`
-  
-        + `</div> 
-      <input type="text" class="input" onKeyPress="addLoader()" spellcheck="false" style="font-family: NeoDunggeunmo">
-      `; //인풋에 키보드 누를 때 함수 실행해주는 속성 부여해야 새로 생긴 인풋 텍스트박스 동작함
-
-      //document.getElementsByClassName("input")[i-1].style.fontFamily = 'NeoDunggeunmo';
       
       //모바일이라면
       if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -105,26 +90,26 @@ function addLoader() {
           + `</div> 
         <input type="text" class="input" onKeyPress="addLoader()" spellcheck="false" style="font-family: NeoDunggeunmo">
         `; 
+      } else {
+        _div.innerHTML = `
+        <div class="divisionline">---</div> 
+          <div class="order"> 
+            <div class="textstart">></div>` + 
+    
+            //명령어 언어 바꾸기
+            `<div class="ordercontent" style="display: none;">Please PRESS '${orderbtn[keynum]}' on your KEYBOARD for ${Math.floor((Math.random() * (70 - 10) + 10))}ms.</div> 
+            <div class="ordercontentkor" style="display: inline-block;">키보드에 있는 '${orderbtn[keynum]}' 버튼을 ${Math.floor((Math.random() * (70 - 10) + 10))}ms동안 누르십시오.</div>`
+    
+          + `</div> 
+        <input type="text" class="input" onKeyPress="addLoader()" spellcheck="false" style="font-family: NeoDunggeunmo">
+        `; //인풋에 키보드 누를 때 함수 실행해주는 속성 부여해야 새로 생긴 인풋 텍스트박스 동작함
+  
+        //document.getElementsByClassName("input")[i-1].style.fontFamily = 'NeoDunggeunmo';
       }
     }
 
     //영어라면
     if (lang === 0) {
-
-      _div.innerHTML = `
-      <div class="divisionline">---</div> 
-        <div class="order"> 
-          <div class="textstart">></div>` + 
-  
-          //명령어 언어 바꾸기
-          `<div class="ordercontent" style="display: inline-block;">Please PRESS '${orderbtn[keynum]}' on your KEYBOARD for ${Math.floor((Math.random() * (70 - 10) + 10))}ms.</div> 
-          <div class="ordercontentkor" style="display: none;">키보드에 있는 '${orderbtn[keynum]}' 버튼을 ${Math.floor((Math.random() * (70 - 10) + 10))}ms동안 누르십시오.</div>`
-  
-        + `</div> 
-      <input type="text" class="input" onKeyPress="addLoader()" spellcheck="false" style="font-family: Roboto Mono">
-      `; //인풋에 키보드 누를 때 함수 실행해주는 속성 부여해야 새로 생긴 인풋 텍스트박스 동작함
-
-      //document.getElementsByClassName("input")[i].style.fontFamily = 'Roboto Mono';
 
       //모바일이라면
       if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -141,6 +126,21 @@ function addLoader() {
           + `</div> 
         <input type="text" class="input" onKeyPress="addLoader()" spellcheck="false" style="font-family: NeoDunggeunmo">
         `; 
+      } else {
+        _div.innerHTML = `
+        <div class="divisionline">---</div> 
+          <div class="order"> 
+            <div class="textstart">></div>` + 
+    
+            //명령어 언어 바꾸기
+            `<div class="ordercontent" style="display: inline-block;">Please PRESS '${orderbtn[keynum]}' on your KEYBOARD for ${Math.floor((Math.random() * (70 - 10) + 10))}ms.</div> 
+            <div class="ordercontentkor" style="display: none;">키보드에 있는 '${orderbtn[keynum]}' 버튼을 ${Math.floor((Math.random() * (70 - 10) + 10))}ms동안 누르십시오.</div>`
+    
+          + `</div> 
+        <input type="text" class="input" onKeyPress="addLoader()" spellcheck="false" style="font-family: Roboto Mono">
+        `; //인풋에 키보드 누를 때 함수 실행해주는 속성 부여해야 새로 생긴 인풋 텍스트박스 동작함
+  
+        //document.getElementsByClassName("input")[i].style.fontFamily = 'Roboto Mono';
       }
     }
 
