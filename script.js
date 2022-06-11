@@ -2,6 +2,7 @@
 
 
 const orderbtn = ['Escape', 'Delete', 'Control', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'F2', 'F8', 'F9', '8', 's', 'y', 'u', 'w', 'p', 'm', 'v', 'n', 'z', 'o', 'q'];
+const mobileorderbtn = ['8', 's', 'y', 'u', 'w', 'p', 'm', 'v', 'n', 'z', 'o', 'q', 'f', 'e', 't', 'b', 'c', 'x', 'g', 'a', 'r'];
 let memory = ['dummy', 'Escape'];
 let ordertime = 0;
 let keynum = 0;
@@ -45,10 +46,7 @@ let sAlert = 0;
 //key === 'Shift' ||
 document.getElementsByClassName('input')[i].addEventListener('keydown', function(event) {
   const key = event.key; 
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    // some code..
-    document.getElementsByClassName('input')[i].value = 'hello';
-   }
+
   if (key === 'Delete' || key === 'Escape' || key === 'CapsLock' ||  key === 'Control' || key === 'ArrowLeft' || key === 'ArrowUp' || key === 'ArrowRight' || key === 'ArrowDown' || key === 'F2' || key === 'F6' || key === 'F8' || key === 'F9') {     
     document.getElementsByClassName('input')[i].value = key;
   }
@@ -68,6 +66,21 @@ function addLoader() {
  
     //한국어라면
     if (lang === 1) {
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        // some code..
+        _div.innerHTML = `
+        <div class="divisionline">---</div> 
+          <div class="order"> 
+            <div class="textstart">></div>` + 
+    
+            //명령어 언어 바꾸기
+            `<div class="ordercontent" style="display: none;">Please PRESS '${mobileorderbtn[keynum]}' on your KEYBOARD for ${Math.floor((Math.random() * (70 - 10) + 10))}ms.</div> 
+            <div class="ordercontentkor" style="display: inline-block;">키보드에 있는 '${mobileorderbtn[keynum]}' 버튼을 ${Math.floor((Math.random() * (70 - 10) + 10))}ms동안 누르십시오.</div>`
+    
+          + `</div> 
+        <input type="text" class="input" onKeyPress="addLoader()" spellcheck="false" style="font-family: NeoDunggeunmo">
+        `; 
+      }
 
       _div.innerHTML = `
       <div class="divisionline">---</div> 
@@ -83,10 +96,26 @@ function addLoader() {
       `; //인풋에 키보드 누를 때 함수 실행해주는 속성 부여해야 새로 생긴 인풋 텍스트박스 동작함
 
       //document.getElementsByClassName("input")[i-1].style.fontFamily = 'NeoDunggeunmo';
+      
     }
 
     //영어라면
     if (lang === 0) {
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        // some code..
+        _div.innerHTML = `
+        <div class="divisionline">---</div> 
+          <div class="order"> 
+            <div class="textstart">></div>` + 
+    
+            //명령어 언어 바꾸기
+            `<div class="ordercontent" style="display: none;">Please PRESS '${mobileorderbtn[keynum]}' on your KEYBOARD for ${Math.floor((Math.random() * (70 - 10) + 10))}ms.</div> 
+            <div class="ordercontentkor" style="display: inline-block;">키보드에 있는 '${mobileorderbtn[keynum]}' 버튼을 ${Math.floor((Math.random() * (70 - 10) + 10))}ms동안 누르십시오.</div>`
+    
+          + `</div> 
+        <input type="text" class="input" onKeyPress="addLoader()" spellcheck="false" style="font-family: NeoDunggeunmo">
+        `; 
+      }
 
       _div.innerHTML = `
       <div class="divisionline">---</div> 
