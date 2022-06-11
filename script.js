@@ -287,245 +287,9 @@ function addLoader() {
       filterDlg.push(Noverlap);
     }
 
-    //만약 내용 같으면 //전에 썼던 코드 기억해서 가져와야함
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && document.getElementsByClassName('input')[i-1].value === Mmemory[0] && document.getElementsByClassName('input')[i-1].value != memory[0]) {
-        samenum++;
-  
-        //깊게 들어가면
-        if (samenum === 5) {
-          correctDlg.push.apply(correctDlg, correctDlg0);
-          correctDlgKor.push.apply(correctDlgKor, correctDlgKor0);
-        }
-        if (samenum === 10) {
-          correctDlg.push.apply(correctDlg, correctDlg1);
-          correctDlgKor.push.apply(correctDlgKor, correctDlgKor1);
-        }
-        if (samenum === 20) {
-          correctDlg.push.apply(correctDlg, correctDlg2);
-          correctDlgKor.push.apply(correctDlgKor, correctDlgKor2);
-          correctDlg.splice(4,2);
-          correctDlg.splice(5,3);
-          correctDlg.splice(6,1);
-          correctDlg.splice(7,1);
-          correctDlgKor.splice(4,2);
-          correctDlgKor.splice(5,3);
-          correctDlgKor.splice(6,1);
-          correctDlgKor.splice(7,1);
-        }
-        if (samenum === 25) {
-          correctDlg.push.apply(correctDlg, correctDlg3);
-          correctDlgKor.push.apply(correctDlgKor, correctDlgKor3);
-        }
-        //히든 대사
-        if (samenum >= 30) {
-          for (num = 0; num < filterDlg.length - 2; num++) { 
-            if (
-              filterDlg[filterDlg.length -1] === 1 && 
-              filterDlg[filterDlg.length -2] === 1 && 
-              filterDlg[filterDlg.length -3] === 1 && 
-              filterDlg[filterDlg.length -4] === 1 &&
-              filterDlg[filterDlg.length -5] === 1) { 
-              sflag = true;
-            } else {
-              sflag = false;
-            }
-          }
-          if (sflag === true) {
-            if (correctDlg.length === 15) {
-              correctDlg.push.apply(correctDlg, correctDlg4);
-              correctDlgKor.push.apply(correctDlgKor, correctDlgKor4);
-            }
-          } 
-          if (sflag === false) {
-            if (correctDlg.length === 20) {
-              correctDlg.splice(15, 5);
-              correctDlgKor.splice(15, 5);
-            } 
-          }
-        }
-  
-  
-        //전체 상자 생성
-        var sameCreator = document.createElement('div');
-        sameCreator.setAttribute('class', 'same');
-  
-        //중복 피하기
-        if (Dlgmemory.length === 7) {
-          //영어
-          let newcorrectDlg = correctDlg.filter(x => !Dlgmemory.includes(x));
-          sameDlgnum = Math.floor(Math.random()*newcorrectDlg.length);
-          Dlgmemory.push(newcorrectDlg[sameDlgnum]);
-  
-          //한국어
-          let newcorrectDlgKor = correctDlgKor.filter(x => !DlgmemoryKor.includes(x));
-          DlgmemoryKor.push(newcorrectDlgKor[sameDlgnum]);
-  
-          //내용입력
-          sameCreator.innerHTML = 
-          `<p class="sameeng">--${newcorrectDlg[sameDlgnum]}</p> 
-          <p class="samekor">--${newcorrectDlgKor[sameDlgnum]}</p>`;
-        } else {
-          //영어
-          sameDlgnum = Math.floor(Math.random()*correctDlg.length);
-          Dlgmemory.push(correctDlg[sameDlgnum]);
-  
-          //한국어
-          DlgmemoryKor.push(correctDlgKor[sameDlgnum]);
-  
-          //내용입력
-          sameCreator.innerHTML = `
-          <p class="sameeng">--${correctDlg[sameDlgnum]}</p> 
-          <p class="samekor">--${correctDlgKor[sameDlgnum]}</p> `;
-        }
-  
-  
-        //적용하기
-        document.getElementsByClassName('orderbox')[i-1].appendChild(sameCreator);
-  
-        //언어여부
-        if (lang === 1) {
-          let children = document.getElementsByClassName("same")[samenum-1].getElementsByTagName("*");
-          for (let item of children) {
-            item.style.fontFamily = 'NeoDunggeunmo';
-          }
-          
-          document.getElementsByClassName("samekor")[samenum-1].style.display = 'inline-block';
-          document.getElementsByClassName("sameeng")[samenum-1].style.display = 'none';
-        }
-  
-        if (lang === 0) {
-  
-          let children = document.getElementsByClassName("same")[samenum-1].getElementsByTagName("*");
-          for (let item of children) {
-            item.style.fontFamily = 'Roboto Mono;';
-          }
-          document.getElementsByClassName("sameeng")[samenum-1].style.display = 'inline-block';
-          document.getElementsByClassName("samekor")[samenum-1].style.display = 'none';
-        }
-  
-        //중복체크
-        filterDlg.push(Soverlap);
-    } else if (document.getElementsByClassName('input')[i-1].value === memory[0] ) {
-      samenum++;
-
-      //깊게 들어가면
-      if (samenum === 5) {
-        correctDlg.push.apply(correctDlg, correctDlg0);
-        correctDlgKor.push.apply(correctDlgKor, correctDlgKor0);
-      }
-      if (samenum === 10) {
-        correctDlg.push.apply(correctDlg, correctDlg1);
-        correctDlgKor.push.apply(correctDlgKor, correctDlgKor1);
-      }
-      if (samenum === 20) {
-        correctDlg.push.apply(correctDlg, correctDlg2);
-        correctDlgKor.push.apply(correctDlgKor, correctDlgKor2);
-        correctDlg.splice(4,2);
-        correctDlg.splice(5,3);
-        correctDlg.splice(6,1);
-        correctDlg.splice(7,1);
-        correctDlgKor.splice(4,2);
-        correctDlgKor.splice(5,3);
-        correctDlgKor.splice(6,1);
-        correctDlgKor.splice(7,1);
-      }
-      if (samenum === 25) {
-        correctDlg.push.apply(correctDlg, correctDlg3);
-        correctDlgKor.push.apply(correctDlgKor, correctDlgKor3);
-      }
-      //히든 대사
-      if (samenum >= 30) {
-        for (num = 0; num < filterDlg.length - 2; num++) { 
-          if (
-            filterDlg[filterDlg.length -1] === 1 && 
-            filterDlg[filterDlg.length -2] === 1 && 
-            filterDlg[filterDlg.length -3] === 1 && 
-            filterDlg[filterDlg.length -4] === 1 &&
-            filterDlg[filterDlg.length -5] === 1) { 
-            sflag = true;
-          } else {
-            sflag = false;
-          }
-        }
-        if (sflag === true) {
-          if (correctDlg.length === 15) {
-            correctDlg.push.apply(correctDlg, correctDlg4);
-            correctDlgKor.push.apply(correctDlgKor, correctDlgKor4);
-          }
-        } 
-        if (sflag === false) {
-          if (correctDlg.length === 20) {
-            correctDlg.splice(15, 5);
-            correctDlgKor.splice(15, 5);
-          } 
-        }
-      }
-
-
-      //전체 상자 생성
-      var sameCreator = document.createElement('div');
-      sameCreator.setAttribute('class', 'same');
-
-      //중복 피하기
-      if (Dlgmemory.length === 7) {
-        //영어
-        let newcorrectDlg = correctDlg.filter(x => !Dlgmemory.includes(x));
-        sameDlgnum = Math.floor(Math.random()*newcorrectDlg.length);
-        Dlgmemory.push(newcorrectDlg[sameDlgnum]);
-
-        //한국어
-        let newcorrectDlgKor = correctDlgKor.filter(x => !DlgmemoryKor.includes(x));
-        DlgmemoryKor.push(newcorrectDlgKor[sameDlgnum]);
-
-        //내용입력
-        sameCreator.innerHTML = 
-        `<p class="sameeng">--${newcorrectDlg[sameDlgnum]}</p> 
-        <p class="samekor">--${newcorrectDlgKor[sameDlgnum]}</p>`;
-      } else {
-        //영어
-        sameDlgnum = Math.floor(Math.random()*correctDlg.length);
-        Dlgmemory.push(correctDlg[sameDlgnum]);
-
-        //한국어
-        DlgmemoryKor.push(correctDlgKor[sameDlgnum]);
-
-        //내용입력
-        sameCreator.innerHTML = `
-        <p class="sameeng">--${correctDlg[sameDlgnum]}</p> 
-        <p class="samekor">--${correctDlgKor[sameDlgnum]}</p> `;
-      }
-
-
-      //적용하기
-      document.getElementsByClassName('orderbox')[i-1].appendChild(sameCreator);
-
-      //언어여부
-      if (lang === 1) {
-        let children = document.getElementsByClassName("same")[samenum-1].getElementsByTagName("*");
-        for (let item of children) {
-          item.style.fontFamily = 'NeoDunggeunmo';
-        }
-        
-        document.getElementsByClassName("samekor")[samenum-1].style.display = 'inline-block';
-        document.getElementsByClassName("sameeng")[samenum-1].style.display = 'none';
-      }
-
-      if (lang === 0) {
-
-        let children = document.getElementsByClassName("same")[samenum-1].getElementsByTagName("*");
-        for (let item of children) {
-          item.style.fontFamily = 'Roboto Mono;';
-        }
-        document.getElementsByClassName("sameeng")[samenum-1].style.display = 'inline-block';
-        document.getElementsByClassName("samekor")[samenum-1].style.display = 'none';
-      }
-
-      //중복체크
-      filterDlg.push(Soverlap);
-    }
 
     //만약 내용 다르면 //내용 다른데 일단 입력하기는 했을 때
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && document.getElementsByClassName('input')[i-1].value != Mmemory[0] && document.getElementsByClassName('input')[i-1].value.length != 0 && document.getElementsByClassName('input')[i-1].value != memory[0]) {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && document.getElementsByClassName('input')[i-1].value != Mmemory[0] && document.getElementsByClassName('input')[i-1].value.length != 0) {
         diffnum++;
   
         //깊게 들어가면
@@ -743,6 +507,247 @@ function addLoader() {
       //중복체크
       filterDlg.push(Doverlap);
     }
+
+    //만약 내용 같으면 //전에 썼던 코드 기억해서 가져와야함
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && document.getElementsByClassName('input')[i-1].value === Mmemory[0] && document.getElementsByClassName('input')[i-1].value != memory[0]) {
+        samenum++;
+  
+        //깊게 들어가면
+        if (samenum === 5) {
+          correctDlg.push.apply(correctDlg, correctDlg0);
+          correctDlgKor.push.apply(correctDlgKor, correctDlgKor0);
+        }
+        if (samenum === 10) {
+          correctDlg.push.apply(correctDlg, correctDlg1);
+          correctDlgKor.push.apply(correctDlgKor, correctDlgKor1);
+        }
+        if (samenum === 20) {
+          correctDlg.push.apply(correctDlg, correctDlg2);
+          correctDlgKor.push.apply(correctDlgKor, correctDlgKor2);
+          correctDlg.splice(4,2);
+          correctDlg.splice(5,3);
+          correctDlg.splice(6,1);
+          correctDlg.splice(7,1);
+          correctDlgKor.splice(4,2);
+          correctDlgKor.splice(5,3);
+          correctDlgKor.splice(6,1);
+          correctDlgKor.splice(7,1);
+        }
+        if (samenum === 25) {
+          correctDlg.push.apply(correctDlg, correctDlg3);
+          correctDlgKor.push.apply(correctDlgKor, correctDlgKor3);
+        }
+        //히든 대사
+        if (samenum >= 30) {
+          for (num = 0; num < filterDlg.length - 2; num++) { 
+            if (
+              filterDlg[filterDlg.length -1] === 1 && 
+              filterDlg[filterDlg.length -2] === 1 && 
+              filterDlg[filterDlg.length -3] === 1 && 
+              filterDlg[filterDlg.length -4] === 1 &&
+              filterDlg[filterDlg.length -5] === 1) { 
+              sflag = true;
+            } else {
+              sflag = false;
+            }
+          }
+          if (sflag === true) {
+            if (correctDlg.length === 15) {
+              correctDlg.push.apply(correctDlg, correctDlg4);
+              correctDlgKor.push.apply(correctDlgKor, correctDlgKor4);
+            }
+          } 
+          if (sflag === false) {
+            if (correctDlg.length === 20) {
+              correctDlg.splice(15, 5);
+              correctDlgKor.splice(15, 5);
+            } 
+          }
+        }
+  
+  
+        //전체 상자 생성
+        var sameCreator = document.createElement('div');
+        sameCreator.setAttribute('class', 'same');
+  
+        //중복 피하기
+        if (Dlgmemory.length === 7) {
+          //영어
+          let newcorrectDlg = correctDlg.filter(x => !Dlgmemory.includes(x));
+          sameDlgnum = Math.floor(Math.random()*newcorrectDlg.length);
+          Dlgmemory.push(newcorrectDlg[sameDlgnum]);
+  
+          //한국어
+          let newcorrectDlgKor = correctDlgKor.filter(x => !DlgmemoryKor.includes(x));
+          DlgmemoryKor.push(newcorrectDlgKor[sameDlgnum]);
+  
+          //내용입력
+          sameCreator.innerHTML = 
+          `<p class="sameeng">--${newcorrectDlg[sameDlgnum]}</p> 
+          <p class="samekor">--${newcorrectDlgKor[sameDlgnum]}</p>`;
+        } else {
+          //영어
+          sameDlgnum = Math.floor(Math.random()*correctDlg.length);
+          Dlgmemory.push(correctDlg[sameDlgnum]);
+  
+          //한국어
+          DlgmemoryKor.push(correctDlgKor[sameDlgnum]);
+  
+          //내용입력
+          sameCreator.innerHTML = `
+          <p class="sameeng">--${correctDlg[sameDlgnum]}</p> 
+          <p class="samekor">--${correctDlgKor[sameDlgnum]}</p> `;
+        }
+  
+  
+        //적용하기
+        document.getElementsByClassName('orderbox')[i-1].appendChild(sameCreator);
+  
+        //언어여부
+        if (lang === 1) {
+          let children = document.getElementsByClassName("same")[samenum-1].getElementsByTagName("*");
+          for (let item of children) {
+            item.style.fontFamily = 'NeoDunggeunmo';
+          }
+          
+          document.getElementsByClassName("samekor")[samenum-1].style.display = 'inline-block';
+          document.getElementsByClassName("sameeng")[samenum-1].style.display = 'none';
+        }
+  
+        if (lang === 0) {
+  
+          let children = document.getElementsByClassName("same")[samenum-1].getElementsByTagName("*");
+          for (let item of children) {
+            item.style.fontFamily = 'Roboto Mono;';
+          }
+          document.getElementsByClassName("sameeng")[samenum-1].style.display = 'inline-block';
+          document.getElementsByClassName("samekor")[samenum-1].style.display = 'none';
+        }
+  
+        //중복체크
+        filterDlg.push(Soverlap);
+
+      //내용 다를 때 나타나는 문구 숨기기
+      document.getElementsByClassName('diff')[diffnum-1].style.display = 'none';
+    } else if (document.getElementsByClassName('input')[i-1].value === memory[0] ) {
+      samenum++;
+
+      //깊게 들어가면
+      if (samenum === 5) {
+        correctDlg.push.apply(correctDlg, correctDlg0);
+        correctDlgKor.push.apply(correctDlgKor, correctDlgKor0);
+      }
+      if (samenum === 10) {
+        correctDlg.push.apply(correctDlg, correctDlg1);
+        correctDlgKor.push.apply(correctDlgKor, correctDlgKor1);
+      }
+      if (samenum === 20) {
+        correctDlg.push.apply(correctDlg, correctDlg2);
+        correctDlgKor.push.apply(correctDlgKor, correctDlgKor2);
+        correctDlg.splice(4,2);
+        correctDlg.splice(5,3);
+        correctDlg.splice(6,1);
+        correctDlg.splice(7,1);
+        correctDlgKor.splice(4,2);
+        correctDlgKor.splice(5,3);
+        correctDlgKor.splice(6,1);
+        correctDlgKor.splice(7,1);
+      }
+      if (samenum === 25) {
+        correctDlg.push.apply(correctDlg, correctDlg3);
+        correctDlgKor.push.apply(correctDlgKor, correctDlgKor3);
+      }
+      //히든 대사
+      if (samenum >= 30) {
+        for (num = 0; num < filterDlg.length - 2; num++) { 
+          if (
+            filterDlg[filterDlg.length -1] === 1 && 
+            filterDlg[filterDlg.length -2] === 1 && 
+            filterDlg[filterDlg.length -3] === 1 && 
+            filterDlg[filterDlg.length -4] === 1 &&
+            filterDlg[filterDlg.length -5] === 1) { 
+            sflag = true;
+          } else {
+            sflag = false;
+          }
+        }
+        if (sflag === true) {
+          if (correctDlg.length === 15) {
+            correctDlg.push.apply(correctDlg, correctDlg4);
+            correctDlgKor.push.apply(correctDlgKor, correctDlgKor4);
+          }
+        } 
+        if (sflag === false) {
+          if (correctDlg.length === 20) {
+            correctDlg.splice(15, 5);
+            correctDlgKor.splice(15, 5);
+          } 
+        }
+      }
+
+
+      //전체 상자 생성
+      var sameCreator = document.createElement('div');
+      sameCreator.setAttribute('class', 'same');
+
+      //중복 피하기
+      if (Dlgmemory.length === 7) {
+        //영어
+        let newcorrectDlg = correctDlg.filter(x => !Dlgmemory.includes(x));
+        sameDlgnum = Math.floor(Math.random()*newcorrectDlg.length);
+        Dlgmemory.push(newcorrectDlg[sameDlgnum]);
+
+        //한국어
+        let newcorrectDlgKor = correctDlgKor.filter(x => !DlgmemoryKor.includes(x));
+        DlgmemoryKor.push(newcorrectDlgKor[sameDlgnum]);
+
+        //내용입력
+        sameCreator.innerHTML = 
+        `<p class="sameeng">--${newcorrectDlg[sameDlgnum]}</p> 
+        <p class="samekor">--${newcorrectDlgKor[sameDlgnum]}</p>`;
+      } else {
+        //영어
+        sameDlgnum = Math.floor(Math.random()*correctDlg.length);
+        Dlgmemory.push(correctDlg[sameDlgnum]);
+
+        //한국어
+        DlgmemoryKor.push(correctDlgKor[sameDlgnum]);
+
+        //내용입력
+        sameCreator.innerHTML = `
+        <p class="sameeng">--${correctDlg[sameDlgnum]}</p> 
+        <p class="samekor">--${correctDlgKor[sameDlgnum]}</p> `;
+      }
+
+
+      //적용하기
+      document.getElementsByClassName('orderbox')[i-1].appendChild(sameCreator);
+
+      //언어여부
+      if (lang === 1) {
+        let children = document.getElementsByClassName("same")[samenum-1].getElementsByTagName("*");
+        for (let item of children) {
+          item.style.fontFamily = 'NeoDunggeunmo';
+        }
+        
+        document.getElementsByClassName("samekor")[samenum-1].style.display = 'inline-block';
+        document.getElementsByClassName("sameeng")[samenum-1].style.display = 'none';
+      }
+
+      if (lang === 0) {
+
+        let children = document.getElementsByClassName("same")[samenum-1].getElementsByTagName("*");
+        for (let item of children) {
+          item.style.fontFamily = 'Roboto Mono;';
+        }
+        document.getElementsByClassName("sameeng")[samenum-1].style.display = 'inline-block';
+        document.getElementsByClassName("samekor")[samenum-1].style.display = 'none';
+      }
+
+      //중복체크
+      filterDlg.push(Soverlap);
+    }
+  
 
     //이벤트
     // if (eventDlg.hasOwnProperty(document.getElementsByClassName('input')[i-1].value)) {
