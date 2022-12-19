@@ -2,14 +2,10 @@
 
 <img src="https://user-images.githubusercontent.com/81071162/173070334-bfc17f72-709f-4c4a-9e5d-9dc1d8305932.png" width="900" height="400">
 
-스탠리 패러블 팬게임 [Monday](https://seunga906.github.io/tobeStanley/)입니다.
+[스탠리 패러블 팬게임](https://seunga906.github.io/tobeStanley/) 입니다.
+실제 지시사항에 따라 직접 버튼을 눌러보며 스탠리가 되어보실수 있습니다.   
 
-게임 도중에 이런 의문 가져보지 않으셨나요?   
-스탠리가 된다는 것은 어떤 느낌일까?   
-이제 그 의문을 풀어드리겠습니다.   
-여러분은 실제 지시사항에 따라 직접 버튼을 눌러보며 스탠리가 되어보실수 있습니다.   
-
-This is a stanley parable fangame, [Monday](https://seunga906.github.io/tobeStanley/).
+This is a [stanley parable fangame](https://seunga906.github.io/tobeStanley/).
 
 Have you ever wondered: What is like to be a Stanley?   
 Now you can find out.   
@@ -33,11 +29,12 @@ By pressing the button according to the actual instructions, you can be a Stanle
 
 <img src="https://user-images.githubusercontent.com/81071162/173070535-3841acc9-ac30-4912-a2db-82fa2c43c7a5.png" width="900" height="400">
 
-원하는 대사가 없다고요? 똑같은 대사만 나와서 지루하다고요?   
 * 번역버튼 옆 더하기 버튼을 누르면 원하는 단어(혹은 문장)을 추가할 수 있습니다.   
-(영어로 단어(혹은 문장)을 추가할경우 capslock이 꺼져있는상태로 입력해주시기 바랍니다.)
 * 대사는 영어, 한국어로 입력가능하며 모두 입력하거나, 둘중 하나만 입력하거나 혹은 아무것도 입력하지 않아도 됩니다.   
-* 저장된 단어(혹은 문장)은 사용자의 기기에서만 볼 수 있으며 서버에 저장되지 않습니다.   
+
+4. 코멘트 선택하기
+
+* 코멘트 버튼으로 대사를 보거나 숨길 수 있습니다.
 
 ## how to use
 
@@ -50,9 +47,9 @@ Take a look at the narrator's response to each choice
 2. Translate   
 You can change the language to English <-> Korean by pressing the translation button in the upper right corner.
 
-3. Add dialogue   
-Are you tired of watching the same lines over and over?   
+3. Add dialogue    
 * You can add any word (or sentence) you want by clicking the plus button next to the translation button.  
-(Please enter the word (or sentence) with capslock turned off.)   
 * You can enter the lines in English or Korean. You can enter either or none.
-* Saved words (or sentences) are usable only on your device and cannot be shared.
+
+4. Choose comment
+* By clicking the comment button, you can see or hide the dialogue.
