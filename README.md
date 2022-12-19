@@ -2,10 +2,10 @@
 
 <img src="https://user-images.githubusercontent.com/81071162/173070334-bfc17f72-709f-4c4a-9e5d-9dc1d8305932.png" width="900" height="400">
 
-[스탠리 패러블 팬게임](https://seunga906.github.io/tobeStanley/) 입니다.
+[스탠리 패러블 팬게임](https://sele906.github.io/tobeStanley/) 입니다.
 실제 지시사항에 따라 직접 버튼을 눌러보며 스탠리가 되어보실수 있습니다.   
 
-This is a [stanley parable fangame](https://seunga906.github.io/tobeStanley/).
+This is a [stanley parable fangame](https://sele906.github.io/tobeStanley/).
 
 Have you ever wondered: What is like to be a Stanley?   
 Now you can find out.   
