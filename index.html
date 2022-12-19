@@ -17,9 +17,19 @@
   <header>
     <h1>>-Employee #427 Instructional Prompt</h1>
     <div id="version">
-      <p>v. 1.81.7+</p>
-      <button class="menu" id="translatebtn" onclick="translateLangbtn()">번역</button>
+      <p>v. 1.81.7</p>
       <button class="menu" id="addbtn" onclick="showaddDlgbtn()">+</button>
+
+      <button class="menu" id="translatebtn" onclick="translateLangbtn()">번역</button>
+
+      <input type="checkbox" id="toggle" hidden> 
+
+      <label for="toggle" id="commentbtn" onclick="showComment()">
+          <p id="commentTxt">comment</p> 
+          <i class="fa-solid fa-check" id="commentcheck"></i>
+      </label>
+      
+
     </div>
 
     <div id="addmenu">

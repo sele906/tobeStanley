@@ -36,24 +36,69 @@ header .menu {
   border: 1px solid #0e8a0e;
   height: 25px;
   cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 header #translatebtn {
-  margin: 10px 5px 10px 10px;
+  margin: 10px 5px;
   padding: 2px 6px 3px 6px;
   font-family: 'NeoDunggeunmo';
 }
 
 header #addbtn {
   font-size: 0.8em;
-  margin: 10px 10px 10px 5px;
+  margin: 10px;
   padding: 0 7px 1px 7px;
   font-family: 'Roboto Mono';
+}
+
+header #commentbtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #0e8a0e;
+  height: 22px;
+  cursor: pointer;
+  padding: 0px 6px 1px 6px;
+  margin: 10px 0 10px 10px;
+  font-size: initial;
+  background-color: #0e8a0e;
+}
+
+#commentTxt {
+  width: 85%;
+  margin: 0;
+  color: #fff;
+  padding: 0px 8px 2px 4px;
+}
+
+#commentcheck {
+  width: 15%;
+  color: #fff;
+  font-size: initial;
+  padding: 0px 4px 0px 0px;
+}
+
+#toggle:checked ~ #commentbtn {
+  background: #000;
+}
+
+#toggle:checked ~ #commentbtn #commentTxt {
+  color: #0e8a0e;
+}
+
+#toggle:checked ~ #commentbtn #commentcheck {
+  color: #0e8a0e;
+}
+
+#commentbtn, #commentbtn #commentcheck, #commentbtn #commentTxt {
+  transition: all 0.2s ease-in;
 }
 
 header .menu:active {
   background-color: #0e8a0e;
   color: white;
+  
 }
 
 /* 알림 */

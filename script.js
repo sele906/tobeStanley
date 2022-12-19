@@ -43,6 +43,23 @@ let eAlert = 0;
 let nAlert = 0;
 let sAlert = 0;
 
+//코멘트 변수
+let commentCheck = true;
+
+//코멘트 체크 되었는지 여부 확인
+function showComment() {
+  if (commentCheck === true) {
+    commentCheck = false;
+    console.log(commentCheck);
+    document.getElementById('commentcheck').className = "fa-solid fa-xmark";
+  } else {
+    commentCheck = true;
+    console.log(commentCheck);
+    document.getElementById('commentcheck').className = "fa-solid fa-check";
+  }
+
+}
+
 //모바일 첫시작
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   // some code..
@@ -222,6 +239,9 @@ function addLoader() {
       var emptyCreator = document.createElement('div');
       emptyCreator.setAttribute('class', 'empty');
 
+      //생성할 때 코멘트 체크 되어 있는지 확인하는 id 넣기(empty)
+      emptyCreator.setAttribute('id', `comment_`+`${commentCheck}`);
+
       //중복 피하기
 
       if (Dlgmemory.length === 7) {
@@ -285,6 +305,13 @@ function addLoader() {
 
       //중복체크
       filterDlg.push(Noverlap);
+
+      //코멘트 체크 되어 있는지 확인하고 글자 박스 보여줄지 결정하기
+      if (document.getElementsByClassName("empty")[nonum-1].id === "comment_true") {
+        document.getElementsByClassName("empty")[nonum-1].style.display = 'block';
+      } else if (document.getElementsByClassName("empty")[nonum-1].id === "comment_false") {
+        document.getElementsByClassName("empty")[nonum-1].style.display = 'none';        
+      }
     }
 
 
@@ -336,6 +363,9 @@ function addLoader() {
         //전체 상자 생성
         var diffCreator = document.createElement('div');
         diffCreator.setAttribute('class', 'diff');
+
+        //생성할 때 코멘트 체크 되어 있는지 확인하는 id 넣기(diff)
+        diffCreator.setAttribute('id', `comment_`+`${commentCheck}`);
   
         //중복 피하기
         if (Dlgmemory.length === 7) {
@@ -397,6 +427,13 @@ function addLoader() {
   
         //중복체크
         filterDlg.push(Doverlap);
+
+        //코멘트 체크 되어 있는지 확인하고 글자 박스 보여줄지 결정하기
+        if (document.getElementsByClassName("diff")[diffnum-1].id === "comment_true") {
+          document.getElementsByClassName("diff")[diffnum-1].style.display = 'block';
+        } else if (document.getElementsByClassName("diff")[diffnum-1].id === "comment_false") {
+          document.getElementsByClassName("diff")[diffnum-1].style.display = 'none';        
+        }
   
     } else if (document.getElementsByClassName('input')[i-1].value != memory[0] && document.getElementsByClassName('input')[i-1].value.length != 0) {
       diffnum++;
@@ -445,6 +482,9 @@ function addLoader() {
       //전체 상자 생성
       var diffCreator = document.createElement('div');
       diffCreator.setAttribute('class', 'diff');
+
+      //생성할 때 코멘트 체크 되어 있는지 확인하는 id 넣기(diff)
+      diffCreator.setAttribute('id', `comment_`+`${commentCheck}`);
 
       //중복 피하기
       if (Dlgmemory.length === 7) {
@@ -506,6 +546,13 @@ function addLoader() {
 
       //중복체크
       filterDlg.push(Doverlap);
+
+      //코멘트 체크 되어 있는지 확인하고 글자 박스 보여줄지 결정하기
+      if (document.getElementsByClassName("diff")[diffnum-1].id === "comment_true") {
+        document.getElementsByClassName("diff")[diffnum-1].style.display = 'block';
+      } else if (document.getElementsByClassName("diff")[diffnum-1].id === "comment_false") {
+        document.getElementsByClassName("diff")[diffnum-1].style.display = 'none';        
+      }
     }
 
     //만약 내용 같으면 //전에 썼던 코드 기억해서 가져와야함
@@ -569,6 +616,9 @@ function addLoader() {
         //전체 상자 생성
         var sameCreator = document.createElement('div');
         sameCreator.setAttribute('class', 'same');
+
+        //생성할 때 코멘트 체크 되어 있는지 확인하는 id 넣기(same)
+        sameCreator.setAttribute('id', `comment_`+`${commentCheck}`);
   
         //중복 피하기
         if (Dlgmemory.length === 7) {
@@ -626,6 +676,13 @@ function addLoader() {
   
         //중복체크
         filterDlg.push(Soverlap);
+
+        //코멘트 체크 되어 있는지 확인하고 글자 박스 보여줄지 결정하기
+        if (document.getElementsByClassName("same")[samenum-1].id === "comment_true") {
+          document.getElementsByClassName("same")[samenum-1].style.display = 'block';
+        } else if (document.getElementsByClassName("same")[samenum-1].id === "comment_false") {
+          document.getElementsByClassName("same")[samenum-1].style.display = 'none';        
+        }
 
       //내용 다를 때 나타나는 문구 숨기기
       document.getElementsByClassName('diff')[diffnum-1].style.display = 'none';
@@ -690,6 +747,9 @@ function addLoader() {
       var sameCreator = document.createElement('div');
       sameCreator.setAttribute('class', 'same');
 
+      //생성할 때 코멘트 체크 되어 있는지 확인하는 id 넣기(same)
+      sameCreator.setAttribute('id', `comment_`+`${commentCheck}`);
+
       //중복 피하기
       if (Dlgmemory.length === 7) {
         //영어
@@ -746,6 +806,13 @@ function addLoader() {
 
       //중복체크
       filterDlg.push(Soverlap);
+
+      //코멘트 체크 되어 있는지 확인하고 글자 박스 보여줄지 결정하기
+      if (document.getElementsByClassName("same")[samenum-1].id === "comment_true") {
+        document.getElementsByClassName("same")[samenum-1].style.display = 'block';
+      } else if (document.getElementsByClassName("same")[samenum-1].id === "comment_false") {
+        document.getElementsByClassName("same")[samenum-1].style.display = 'none';        
+      }
     }
   
 
@@ -758,6 +825,9 @@ function addLoader() {
       //전체 상자 생성
       var eventCreator = document.createElement('div');
       eventCreator.setAttribute('class', 'event');
+
+      //생성할 때 코멘트 체크 되어 있는지 확인하는 id 넣기(event)
+      eventCreator.setAttribute('id', `comment_`+`${commentCheck}`);
 
       //내용입력
       // eventCreator.innerHTML = `
@@ -804,6 +874,13 @@ function addLoader() {
     if (DlgmemoryKor.length >= 8) {
       DlgmemoryKor.shift();
     }
+
+    //코멘트 체크 되어 있는지 확인하고 글자 박스 보여줄지 결정하기
+    if (document.getElementsByClassName("event")[eventnum-1].id === "comment_true") {
+      document.getElementsByClassName("event")[eventnum-1].style.display = 'block';
+    } else if (document.getElementsByClassName("event")[eventnum-1].id === "comment_false") {
+      document.getElementsByClassName("event")[eventnum-1].style.display = 'none';        
+    }
   }
 }
 
@@ -813,8 +890,11 @@ function translateLangbtn() { //함수명 너무 흔한걸로 쓰면 원래 있�
   if (lang === 1) {
 
     //버튼 바꾸기
-    document.querySelector('button').innerHTML = '번역';
-    document.querySelector('button').style.fontFamily = 'NeoDunggeunmo';
+    document.getElementById("translatebtn").innerHTML = '번역';
+    document.getElementById("translatebtn").style.fontFamily = 'NeoDunggeunmo';
+    document.getElementById("commentTxt").innerHTML = 'comment';
+    document.getElementById("commentTxt").style.fontFamily = 'Roboto Mono';
+    document.getElementById("commentTxt").style.padding = "0px 8px 2px 4px";
 
     //머리말 바꾸기
     document.title = 'Employee #427 Instructional Prompt';
@@ -873,8 +953,11 @@ function translateLangbtn() { //함수명 너무 흔한걸로 쓰면 원래 있�
    if (lang === 0) {
 
     //버튼 바꾸기
-    document.querySelector('button').innerHTML = 'translate';
-    document.querySelector('button').style.fontFamily = 'Roboto Mono';
+    document.getElementById("translatebtn").innerHTML = 'translate';
+    document.getElementById("translatebtn").style.fontFamily = 'Roboto Mono';
+    document.getElementById("commentTxt").innerHTML = '코멘트';
+    document.getElementById("commentTxt").style.fontFamily = 'NeoDunggeunmo';
+    document.getElementById("commentTxt").style.padding = "2px 8px 0px 4px";
 
     //머리말 바꾸기
     document.title = '직원 #427 지시사항';
