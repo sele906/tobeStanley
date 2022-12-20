@@ -1,6 +1,6 @@
 # 427번 직원이 되어보세요
 
-<img src="https://user-images.githubusercontent.com/81071162/173070334-bfc17f72-709f-4c4a-9e5d-9dc1d8305932.png" width="900" height="400">
+<img src="https://user-images.githubusercontent.com/81071162/208586296-c449f4ae-a37f-41ba-b5e3-1554e3deb94d.png" width="900" height="400">
 
 [스탠리 패러블 팬게임](https://sele906.github.io/tobeStanley/) 입니다.
 실제 지시사항에 따라 직접 버튼을 눌러보며 스탠리가 되어보실수 있습니다.   
@@ -21,13 +21,13 @@ By pressing the button according to the actual instructions, you can be a Stanle
 
 2. 번역하기
 
-<img src="https://user-images.githubusercontent.com/81071162/173070490-25aab88f-04b2-4d56-bd6c-6dbe2f5594ed.png" width="900" height="400">
+<img src="https://user-images.githubusercontent.com/81071162/208586638-cf0a5f86-2410-4e79-aac9-dc682eacdca0.png" width="900" height="400">
 
 오른쪽 위쪽의 번역버튼을 눌러 영어 <-> 한국어로 언어를 변경할 수 있습니다.
 
 3. 대사 추가하기
 
-<img src="https://user-images.githubusercontent.com/81071162/173070535-3841acc9-ac30-4912-a2db-82fa2c43c7a5.png" width="900" height="400">
+<img src="https://user-images.githubusercontent.com/81071162/208587199-af09b2cf-6086-429e-b489-3575a7dba4f5.png" width="900" height="400">
 
 * 번역버튼 옆 더하기 버튼을 누르면 원하는 단어(혹은 문장)을 추가할 수 있습니다.   
 * 대사는 영어, 한국어로 입력가능하며 모두 입력하거나, 둘중 하나만 입력하거나 혹은 아무것도 입력하지 않아도 됩니다.   
